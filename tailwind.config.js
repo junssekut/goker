@@ -13,9 +13,16 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                'mnbook': ['MnBook'],
+                'mnbold': ['MnBold'],
+                'britReg': ['britReg'],
+                'britHeavy': ['britHeavy']
             },
             colors: {
                 'footer' : '#101820'
+                'ijoGojek': '#00AA13',
+                'kuningGojek': '#F7CE55',
+                'unguGojek': '#762582'
             }
         },
     },
