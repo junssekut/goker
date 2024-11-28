@@ -1,0 +1,27 @@
+.nav-list {
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+    color: #333; /* Adjust to your desired text color */
+    padding: 5px 0; /* Adds spacing for the underline */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.nav-list::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px; /* Adjust the thickness of the underline */
+    background-color: black; /* Adjust to your desired line color */
+    transition: width 0.3s ease; /* Smooth transition for animation */
+}
+
+.nav-list:hover {
+    color: black;
+}
+
+.nav-list:hover::after {
+    width: 100%; 
+}

@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Mnbook';
+  src: url('/public/font/fonnts.com-Maison_Neue_Book.ttf');
+}
+
+@font-face {
+  font-family: 'Mnbold';
+  src: url('/public/font/fonnts.com-Maison_Neue_Bold.ttf');
+}
+
+@font-face {
+  font-family: 'britReg';
+  src: url('/public/font/Britanica Regular.ttf');
+}
+
+@font-face {
+  font-family: 'britHeavy';
+  src: url('/public/font/Britanica Extra Bold.ttf');
+}
+
