@@ -1,23 +1,16 @@
-## Cara Mengoperasikan
+## Tutorial
 
-### Run Laravel
+Kalau pertama kali ngepull dari github, run command-command ini buat setup web applicationnya
+
 ```bash
-php artisan serve
+composer install
+php artisan key:generate
+php artisan migrate
+
+php artisan serve # run laravel
 ```
 
-### Run Vite
-
-#### Run Pertama
+Buka command prompt baru, run vite (untuk live-reload)
 ```bash
-npm install
-```
-atau
-```bash
-npm install && run dev
-```
-
-
-Kalau udah pernah ngelakuin `npm install`, kita bisa langsung run development servernya biar bisa live reload
-```bash
-npm run dev
+npm install && npm run dev
 ```
