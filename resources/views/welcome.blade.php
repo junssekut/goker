@@ -1,51 +1,19 @@
 <x-html>
 
-    <body class="bg-kuningGojek">
-        <x-navAfter></x-navAfter>
-    
-    
-    <footer class="bg-gray-900 text-white py-6">
-      <div class="container mx-auto px-4">
-          <!-- Div 1: Logo -->
-          <div class="flex justify-start flex-col gap-y-[19px]">
-              <!-- Logo -->
-              <div class="flex">
-                  <img src="{{ asset('assets/images/logo/goker-gelap.png') }}" alt="Goker Logo"
-                      class="w-[203.5px] h-[61.5px]">
-              </div>
-
-              <!-- Navigation -->
-
-              <div class="flex flex-row gap-x-[55px] ">
-                  <div class="flex flex-col gap-y-[19px]">
-                      <a href="#" class="hover:text-gray-400">Beranda</a>
-                      <a href="#" class="hover:text-gray-400">Karir</a>
-                      <a href="#" class="hover:text-gray-400">Life@Gojek</a>
-                  </div>
-
-                  <!-- Social Media -->
-                  <div class="flex flex-col gap-y-[10px]">
-                      <div>
-                          <h1>Terhubung dengan kami <span class="text-l mt-2">👇</span></h1>
-                      </div>
-                      <div class="flex space-x-4">
-                          <a href="#" class="hover:text-gray-400"><i class="fab fa-linkedin"></i></a>
-                          <a href="#" class="hover:text-gray-400"><i class="fab fa-youtube"></i></a>
-                          <a href="#" class="hover:text-gray-400"><i class="fab fa-twitter "></i></a>
-                          <a href="#" class="hover:text-gray-400"><i class="fab fa-github "></i></a>
-                          <a href="#" class="hover:text-gray-400"><i class="fab fa-instagram"></i></a>
-                      </div>
-                  </div>
-
-              </div>
-
-          </div>
-
-          <!-- Div 2: Copyright -->
-          <div class="text-center mt-6">
-              <p>Goker tech | 2024 All Rights Reserved</p>
-          </div>
-      </div>
-  </footer>
-  </body>
+    <body class="bg-kuningGojek h-full">
+        {{-- <x-navAfter></x-navAfter> --}}
+        <x-navBefore></x-navBefore>
+        {{-- <x-navWhile></x-navWhile> --}}
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <x-footer></x-footer>
+    </body>
 </x-html>
