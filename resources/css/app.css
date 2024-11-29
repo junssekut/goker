@@ -22,3 +22,13 @@
   src: url('/public/font/Britanica Extra Bold.ttf');
 }
 
+@font-face {
+  font-family: 'helvetica';
+  src: url('/public/font/Helvetica.ttf');
+}
+
+@font-face {
+  font-family: 'britBlack';
+  src: url('/public/font/Britanica Black.ttf');
+}
+

@@ -16,7 +16,9 @@ export default {
                 'mn book': ['MnBook'],
                 'mnbold': ['MnBold'],
                 'britReg': ['britReg'],
-                'britHeavy': ['britHeavy']
+                'britHeavy': ['britHeavy'],
+                'britBlack': ['britBlack'],
+                'helvetica': ['helvetica']
             },
             colors: {
                 'footer' : '#101820',
