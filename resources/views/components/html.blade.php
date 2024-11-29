@@ -912,16 +912,37 @@
     <script defer>
         document.addEventListener("DOMContentLoaded", function() {
             let nav = document.querySelector('.navbar');
-
-
+            let img = document.querySelector('.goker-logo');
+            let navList = document.querySelectorAll('.nav-list')
+            let uIcon = document.querySelector('.u-icon')
 
             function handleScroll() {
                 if (window.scrollY > 10) {
                     nav.classList.add("bg-white", "pt-0", "shadow-md");
                     nav.classList.remove("bg-transparent", "pt-7", "shadow-none");
+                    if (navList[0].classList.contains('nl-white')) {
+                        img.src = "assets/images/goker-cerah.png";
+                        navList.forEach(e => {
+                            e.classList.remove('text-white')
+                            e.classList.add('text-black')
+                        });
+                        uIcon.classList.remove('text-white')
+                        uIcon.classList.add('text-black')
+                    }
                 } else {
                     nav.classList.add("bg-transparent", "pt-7", "shadow-none");
                     nav.classList.remove("bg-white", "pt-0", "shadow-md");
+                    if (navList[0].classList.contains('nl-white')) {
+                        img.src = "assets/images/logo/goker-gelap.png";
+                        navList.forEach(e => {
+                            e.classList.add('text-white')
+                            e.classList.remove('text-black')
+                        })
+                        uIcon.classList.remove('text-black')
+                        uIcon.classList.add('text-white')
+
+                    }
+
                 }
             }
 
@@ -930,10 +951,30 @@
                 window.addEventListener("scroll", handleScroll);
                 nav.classList.remove("bg-white", "pt-0", "shadow-md");
                 nav.classList.add("bg-transparent", "pt-7", "shadow-none");
+                if (navList[0].classList.contains('nl-white')) {
+                    img.src = "assets/images/logo/goker-gelap.png";
+                    navList.forEach(e => {
+                        e.classList.add('text-white')
+                        e.classList.remove('text-black')
+                    })
+                    uIcon.classList.remove('text-black')
+                    uIcon.classList.add('text-white')
+
+
+                }
             } else {
                 window.removeEventListener("scroll", handleScroll);
                 nav.classList.add("bg-white", "pt-0", "shadow-md");
                 nav.classList.remove("bg-transparent", "pt-7", "shadow-none");
+                if (navList[0].classList.contains('nl-white')) {
+                    img.src = "assets/images/goker-cerah.png";
+                    navList.forEach(e => {
+                        e.classList.remove('text-white')
+                        e.classList.add('text-black')
+                    });
+                    uIcon.classList.remove('text-white')
+                    uIcon.classList.add('text-black')
+                }
             }
 
 
@@ -942,10 +983,30 @@
                     window.addEventListener("scroll", handleScroll);
                     nav.classList.remove("bg-white", "pt-0", "shadow-md");
                     nav.classList.add("bg-transparent", "pt-7", "shadow-none");
+                    if (navList[0].classList.contains('nl-white')) {
+                        img.src = "assets/images/logo/goker-gelap.png";
+                        navList.forEach(e => {
+                            e.classList.add('text-white')
+                            e.classList.remove('text-black')
+                        })
+                        uIcon.classList.remove('text-black')
+                        uIcon.classList.add('text-white')
+
+
+                    }
                 } else {
                     window.removeEventListener("scroll", handleScroll);
                     nav.classList.add("bg-white", "pt-0", "shadow-md");
                     nav.classList.remove("bg-transparent", "pt-7", "shadow-none");
+                    if (navList[0].classList.contains('nl-white')) {
+                        img.src = "assets/images/goker-cerah.png";
+                        navList.forEach(e => {
+                            e.classList.remove('text-white')
+                            e.classList.add('text-black')
+                        });
+                        uIcon.classList.remove('text-white')
+                        uIcon.classList.add('text-black')
+                    }
                 }
             });
         });
