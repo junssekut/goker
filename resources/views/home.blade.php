@@ -72,49 +72,6 @@ Jadilah bagian dari Gojek dan wujudkan potensi terbaik Anda. Bersama kami, bangu
             </div>
         </div>
 
-
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-
         <div class="bg-footer">
             <h1 class="font-britBlack text-white text-4xl sm:text-5xl w-full text-center p-14">
                 Teknologi kami mendukung Indonesia
