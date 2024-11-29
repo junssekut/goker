@@ -13,7 +13,7 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-                'mnbook': ['MnBook'],
+                'mn book': ['MnBook'],
                 'mnbold': ['MnBold'],
                 'britReg': ['britReg'],
                 'britHeavy': ['britHeavy']
