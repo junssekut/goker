@@ -19,10 +19,13 @@ export default {
                 'britHeavy': ['britHeavy']
             },
             colors: {
-                'footer' : '#101820'
+                'footer' : '#101820',
                 'ijoGojek': '#00AA13',
                 'kuningGojek': '#F7CE55',
                 'unguGojek': '#762582'
+            },
+            screens: {
+                md: '1124px'
             }
         },
     },
