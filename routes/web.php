@@ -6,6 +6,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dev', function() {
-    return view('dev');
-});
+Route::get('/career', function () {
+    return view('career');
+})->name('career');
+
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
