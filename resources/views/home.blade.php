@@ -1,9 +1,7 @@
 <x-html>
 
-    <body class="bg-kuningGojek h-full">
-        {{-- <x-navAfter></x-navAfter> --}}
+    <body class="bg-black">
         <x-navBefore></x-navBefore>
-        {{-- <x-navWhile></x-navWhile> --}}
         <br>
         <br>
         <br>
@@ -54,16 +52,5 @@
         <br>
         <br>
         <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <x-footer></x-footer>
     </body>
 </x-html>
