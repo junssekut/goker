@@ -22,7 +22,7 @@
 
             <div class="cards">
                 <div class="card">
-                    <img src{{ assets('') }}" alt="">
+                    <img src{{ asset('assets/images/icon-helm.svg') }}" alt="svg not found">
                     <h1>Gabung jadi bagian dari gojek, bangun kariermu sekarang!</h1>
                     <p>Bergabunglah dengan Gojek dan mulailah perjalanan karier Anda di perusahaan teknologi terkemuka,
                         penuh peluang dan tantangan.</p>

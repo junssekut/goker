@@ -147,7 +147,6 @@
             z-index: 100;
         }
     </style>
-
 </head>
 
 {{ $slot }}
