@@ -4,7 +4,7 @@
         <div class="flex justify-start flex-col gap-y-[19px]">
             <!-- Logo -->
             <div class="flex">
-                <img src="{{ asset('assets/images/logo/goker-gelap.png') }}" alt="Goker Logo"
+                <img src="{{ asset('assets/images/goker-gelap.png') }}" alt="Goker Logo"
                     class="w-[203.5px] h-[61.5px] mt-5 mb-5">
             </div>
 

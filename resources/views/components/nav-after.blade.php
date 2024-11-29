@@ -4,14 +4,14 @@
             ">
     <div class="flex justify-between items-center md:flex-none">
         <span class="h-24 flex items-center justify-center pl-5 md:pl-0">
-            <img class="w-full h-12 cursor-pointer" src="{{ asset('assets/images/goker-cerah.png') }}" alt="">
+            <img class="navbar__image w-full h-12 cursor-pointer" src="{{ asset('assets/images/goker-gelap.png') }}"
+                alt="">
         </span>
 
         <span class="text-5xl cursor-pointer md:hidden block pr-6">
             <ion-icon name="menu-outline" onclick="DropDown(this)"></ion-icon>
         </span>
     </div>
-
 
     <div
         class="nav-right md:flex md:justify-around md:gap-16 md:opacity-100 opacity-0 

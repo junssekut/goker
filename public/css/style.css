@@ -2,7 +2,7 @@
     position: relative;
     text-decoration: none;
     display: inline-block;
-    color: #333; /* Adjust to your desired text color */
+    color: white; /* Adjust to your desired text color */
     padding: 5px 0; /* Adds spacing for the underline */
     transition: color 0.3s ease; /* Smooth transition for color change */
 }
@@ -13,13 +13,13 @@
     bottom: 0;
     left: 0;
     width: 0;
-    height: 2px; /* Adjust the thickness of the underline */
-    background-color: black; /* Adjust to your desired line color */
+    height: 3px; /* Adjust the thickness of the underline */
+    background-color: white; /* Adjust to your desired line color */
     transition: width 0.3s ease; /* Smooth transition for animation */
 }
 
 .nav-list:hover {
-    color: black;
+    color: white;
 }
 
 .nav-list:hover::after {
