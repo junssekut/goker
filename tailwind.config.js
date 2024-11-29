@@ -26,6 +26,9 @@ export default {
             },
             screens: {
                 md: '1124px'
+            },
+            zIndex: {
+                9: '9', 
             }
         },
     },
