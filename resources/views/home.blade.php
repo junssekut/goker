@@ -1,6 +1,6 @@
 <x-html>
 
-    <body class="bg-white">
+    <body class="bg-white z-auto">
         <x-navBefore></x-navBefore>
 
         <video class="absolute top-0 left-0 w-screen h-screen object-cover -z-10" autoplay muted loop>
@@ -22,7 +22,7 @@
                 Gojek
             </h1>
 
-            <div class="relative flex flex-col items-center md:flex-row sm:justify-center gap-0 md:gap-28 text-white">
+            <div class="relative flex flex-col items-center md:flex-row sm:justify-evenly text-white">
 
                 <x-HomeCard asset="assets/images/icon-helm.svg"
                     title="Gabung jadi bagian dari gojek, bangun kariermu sekarang!" color="#496D1C"
@@ -39,20 +39,19 @@ Jadilah bagian dari Gojek dan wujudkan potensi terbaik Anda. Bersama kami, bangu
         </div>
 
         <div>
-            <div class="flex flex-col relative w-full h-[1000px]">
+            <div class="flex flex-col relative w-full h-[500px] md:h-[1000px]">
                 <!-- Picture for the background image -->
                 <picture class="absolute inset-0 z-0 w-full h-full">
-                    <!-- For medium screens (md) and larger, use the desktop image -->
-                    <source media="(min-width: 768px)" srcset="{{ asset('assets/images/bg-mountain.svg') }}">
 
                     <!-- Fallback for smaller screens (less than 768px), use the mobile image -->
-                    <img src="{{ asset('assets/images/bg-mountain-mobile.svg') }}" alt="Mountain background"
-                        class="w-full h-full object-cover">
+                    <img src="{{ asset('assets/images/bg-mountain.svg') }}" alt="Mountain background"
+                        class="w-full h-full object-cover object-[20%]">
                 </picture>
 
                 <!-- Content (above the background) -->
-                <div class="flex flex-col items-end w-full font-britHeavy px-44 h-full">
-                    <div class="w-[418px] space-y-4 mx-44">
+                <div class="flex flex-col sm:items-end items-center w-full font-britHeavy h-full">
+                    <div
+                        class="w-[418px] space-y-4 mx-10 md:mx-44 bg-transprent p-6 rounded-2xl bg-white/70 backdrop-blur-lg relative shadow-[4px_4px_8px_rgba(0,0,0,0.3)] mirror-effect">
                         <h1 class="text-5xl">
                             <span>Cari pekerjaan yang kamu inginkan</span>
                             <span class="text-ijoGojek"> secepat itu!</span>
@@ -77,7 +76,7 @@ Jadilah bagian dari Gojek dan wujudkan potensi terbaik Anda. Bersama kami, bangu
                 Teknologi kami mendukung Indonesia
             </h1>
 
-            <div class="flex flex-col items-center gap-24 text-white px-44 pb-20">
+            <div class="flex flex-col items-center gap-24 text-white pb-20">
                 <x-HomePromotionCard
                     title='Gabung dengan kami untuk menyokong para driver kami dengan aplikasi yang dapat diandalkan.'
                     color='#6CC24A' :button='false' asset='assets/images/card-gojek.svg' />
