@@ -18,7 +18,7 @@
     <div
         class="nav-right md:flex md:justify-around md:gap-16 md:opacity-100 opacity-0 
             top-[80px] transition-all ease-in duration-200  md:static absolute z-0
-            w-full md:w-auto md:z-auto pt-7 md:pt-0 rounded-bl-2xl rounded-br-2xl md:rounded-b-0 bg-white md:bg-transparent shadow-md">
+            w-full md:w-auto md:z-auto pt-7 md:pt-0 rounded-bl-2xl rounded-br-2xl md:rounded-b-0 bg-white md:bg-transparent shadow-md md:shadow-none">
         <ul class="md:flex md:items-center md:justify-between md:gap-14">
             <div class="w-full flex justify-center">
                 <a href="#"
