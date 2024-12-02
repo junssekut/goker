@@ -20,7 +20,7 @@
                 <!-- Social Media -->
                 <div class="flex flex-col gap-y-[10px]">
                     <div>
-                        <h1>Terhubung dengan kami <span class="text-l mt-2">👇</span></h1>
+                        <h1 class="font-mnbook">Terhubung dengan kami <span class="text-l mt-2">👇</span></h1>
                     </div>
                     <div class="flex space-x-4">
                         <a href="#" class="hover:text-gray-300 duration-150"><i class="fab fa-linkedin"></i></a>

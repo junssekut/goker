@@ -65,3 +65,34 @@
 .user-list:hover::after {
     width: 100%; 
 }
+
+.custom-checkbox {
+    appearance: none;
+    height: 1rem; /* 5 * 0.25rem */
+    width: 1rem;
+    border: 1px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+.custom-checkbox:checked {
+    background-color: white;
+    border-color: white;
+  }
+
+.custom-checkbox:checked::before {
+    content: '◉';
+    color: black; /* Change this to your desired color */
+    font-weight: bold;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
