@@ -1,6 +1,6 @@
 <nav
     class="navbar justify-around md:flex md:items-center w-full md:px-44 md:justify-between bg-white rounded-bl-2xl rounded-br-2xl shadow-md
-            h-24 md:h-auto z[1]
+            h-24 md:h-auto fixed z-[100]
             ">
     <div class="flex justify-between items-center md:flex-none">
         <span class="h-24 flex items-center pl-5 md:pl-0">

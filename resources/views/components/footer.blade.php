@@ -12,15 +12,15 @@
 
             <div class="flex flex-row gap-x-[55px] ">
                 <div class="flex flex-col gap-y-[19px]">
-                    <a href="#" class="hover:text-gray-400">Beranda</a>
-                    <a href="#" class="hover:text-gray-400">Karir</a>
-                    <a href="#" class="hover:text-gray-400">Life@Gojek</a>
+                    <a href="#" class="hover:text-gray-400 font-britHeavy">Beranda</a>
+                    <a href="#" class="hover:text-gray-400 font-britHeavy">Karir</a>
+                    <a href="#" class="hover:text-gray-400 font-britHeavy">Life@Gojek</a>
                 </div>
 
                 <!-- Social Media -->
                 <div class="flex flex-col gap-y-[10px]">
                     <div>
-                        <h1>Terhubung dengan kami <span class="text-l mt-2">👇</span></h1>
+                        <h1 class="font-mnbook">Terhubung dengan kami <span class="text-l mt-2">👇</span></h1>
                     </div>
                     <div class="flex space-x-4">
                         <a href="#" class="hover:text-gray-400"><i class="fab fa-linkedin"></i></a>
