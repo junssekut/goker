@@ -13,10 +13,12 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-                'mnbook': ['MnBook'],
+                'mn book': ['MnBook'],
                 'mnbold': ['MnBold'],
                 'britReg': ['britReg'],
-                'britHeavy': ['britHeavy']
+                'britHeavy': ['britHeavy'],
+                'britBlack': ['britBlack'],
+                'helvetica': ['helvetica']
             },
             colors: {
                 'footer' : '#101820',
@@ -26,6 +28,9 @@ export default {
             },
             screens: {
                 md: '1124px'
+            },
+            zIndex: {
+                9: '9', 
             }
         },
     },

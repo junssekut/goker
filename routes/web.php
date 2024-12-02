@@ -9,3 +9,11 @@ Route::get('/', function () {
 Route::get('/login', function(){
     return view('login');
 });
+
+Route::get('/career', function () {
+    return view('career');
+})->name('career');
+
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
