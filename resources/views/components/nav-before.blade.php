@@ -71,16 +71,21 @@
                     navList.forEach(e => {
                         e.classList.remove('text-white')
                         e.classList.add('text-black')
+                        e.classList.add('nl-black')
+                        e.classList.remove('nl-white')
                     });
+
                 }
             } else {
                 nav.classList.add("bg-transparent", "pt-7", "shadow-none");
                 nav.classList.remove("bg-white", "pt-0", "shadow-md");
-                if (navList[0].classList.contains('nl-white')) {
+                if (navList[0].classList.contains('nl-white') || navList[0].classList.contains('nl-black')) {
                     img.src = "assets/images/goker-gelap.png";
                     navList.forEach(e => {
                         e.classList.add('text-white')
                         e.classList.remove('text-black')
+                        e.classList.remove('nl-black')
+                        e.classList.add('nl-white')
                     })
 
                 }
