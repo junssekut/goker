@@ -2,8 +2,8 @@
 
     <body class="bg-gradient-to-b from-white to-[#F7CE55] h-100">
         {{-- <x-navAfter></x-navAfter> --}}
-        {{-- <x-navBefore></x-navBefore> --}}
-        <x-navWhile></x-navWhile>
+        <x-navBefore></x-navBefore>
+        {{-- <x-navWhile></x-navWhile> --}}
         <div class="relative flex items-center justify-center h-screen">
             <!-- Lingkaran dekoratif -->
             <div
@@ -24,7 +24,7 @@
                 </div>
                 <!-- Form -->
                 <div
-                    class="w-full md:w-[40%] max-w-md p-8 rounded-3xl shadow-lg bg-[#00AA13] flex flex-col items-center">
+                    class="w-full md:w-[40%] max-w-md p-8 rounded-3xl bg-[#00AA13] flex flex-col items-center shadow-[-20px_20px_0_rgba(0,0,0,0.2)]">
                     <h2 class="text-xl text-center font-bold text-white mt-4 mb-6">Selamat datang, Gokers!</h2>
 
                     <form action="#" method="post" class="w-full">

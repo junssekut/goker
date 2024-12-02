@@ -57,6 +57,7 @@
         let img = document.querySelector('.goker-logo');
         let navList = document.querySelectorAll('.nav-list')
         let uIcon = document.querySelector('.u-icon')
+        const currentRoute = "{{ Route::currentRouteName() }}";
 
         function handleScroll() {
             let image = document.querySelector('.navbar__image');
@@ -130,13 +131,18 @@
                 nav.classList.add("bg-transparent", "pt-7", "shadow-none");
                 if (navList[0].classList.contains('nl-white') || navList[0].classList.contains(
                         'nl-black')) {
-                    img.src = "assets/images/goker-gelap.png";
-                    navList.forEach(e => {
-                        e.classList.add('text-white')
-                        e.classList.remove('text-black')
-                        e.classList.remove('nl-black')
-                        e.classList.add('nl-white')
-                    })
+                    if (currentRoute !== 'login') {
+                        img.src = "assets/images/goker-gelap.png";
+                        navList.forEach(e => {
+                            e.classList.add('text-white')
+                            e.classList.remove('text-black')
+
+                            e.classList.remove('nl-black')
+                            e.classList.add('nl-white')
+
+
+                        })
+                    }
                 }
             } else {
                 window.removeEventListener("scroll", handleScroll);
