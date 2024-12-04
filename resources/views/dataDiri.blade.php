@@ -4,7 +4,6 @@
 
         <x-navWhile></x-navWhile>
 
-
         <div class="bg-gradient-to-t from-biruGojek to-white flex justify-center relative h-full">
             <div class="absolute w-[20vw] h-[20vw] bg-gray-50 bg-opacity-30 rounded-full top-[26vh] left-[27vw]">
             </div>

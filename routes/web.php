@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\dataDiriController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -10,8 +11,6 @@ Route::get('/', function () {
 Route::get('/dataDiri', function () {
     return view('dataDiri');
 });
-
-use App\Http\Controllers\PostController;
  
 Route::get('/post/create', [PostController::class, 'create']);
 Route::post('/post', [PostController::class, 'store']);
