@@ -25,3 +25,11 @@
 .nav-list:hover::after {
     width: 100%; 
 }
+
+/* Tailwind-compatible customization for Choices.js */
+.choices__inner {
+    @apply border rounded-md p-2 text-gray-700 shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none;
+}
+.choices__list--dropdown .choices__item--selectable {
+    @apply text-gray-800 hover:bg-gray-100;
+}

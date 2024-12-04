@@ -22,7 +22,9 @@ export default {
                 'footer' : '#101820',
                 'ijoGojek': '#00AA13',
                 'kuningGojek': '#F7CE55',
-                'unguGojek': '#762582'
+                'unguGojek': '#762582',
+                'biruGojek' : '#00ADD6',
+                'kuningTuaGojek' : '#F09A1F'
             },
             screens: {
                 md: '1124px'
