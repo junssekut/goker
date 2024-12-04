@@ -21,7 +21,7 @@
             w-full md:w-auto md:z-auto pt-7 md:pt-0 rounded-bl-2xl rounded-br-2xl md:rounded-b-0 bg-white md:bg-transparent shadow-md md:shadow-none">
         <ul class="md:flex md:items-center md:justify-between md:gap-14">
             <div class="w-full flex justify-center">
-                <a href="#"
+                <a href="{{ route('home') }}"
                     class="{{ Route::is('home') ? 'nav-list nl-white font-britHeavy text-lg text-white' : 'nav-list nl-black font-britHeavy text-lg' }}">Beranda</a>
             </div>
             <div class="w-full flex justify-center">
@@ -35,7 +35,7 @@
 
         </ul>
 
-        @if (!(Route::is('register') || Route::is('signin')))
+        {{-- @if (!(Route::is('register') || Route::is('signin')))
             <div class="button-login flex justify-center gap-3 mt-3 pb-6 md:mt-0 md:pb-0">
                 <button
                     class="font-britHeavy text-lg pl-5 pr-5 p-1 md:pt-0 md:pb-0 bg-unguGojek text-white rounded-3xl duration-300 hover:bg-ijoGojek">
@@ -45,6 +45,10 @@
                     class="font-britHeavy text-lg pl-5 pr-5 bg-ijoGojek text-white rounded-3xl duration-300 hover:bg-unguGojek"><a
                         href="">Daftar</a></button>
             </div>
+        @endif --}}
+
+        @if (Route::has('login'))
+            <livewire:welcome.navigation />
         @endif
 
     </div>
@@ -53,10 +57,15 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
+        const isLoggedIn = @json(Auth::check());
+        let uIcon;
+        if (isLoggedIn) {
+            uIcon = document.querySelector('.u-icon')
+        }
+        const currentRoute = @json(Route::currentRouteName());
         let nav = document.querySelector('.navbar');
         let img = document.querySelector('.goker-logo');
         let navList = document.querySelectorAll('.nav-list')
-        let uIcon = document.querySelector('.u-icon')
 
         function handleScroll() {
             let image = document.querySelector('.navbar__image');
@@ -74,6 +83,11 @@
                         e.classList.add('nl-black')
                         e.classList.remove('nl-white')
                     });
+                    if (isLoggedIn) {
+                        uIcon.classList.remove('text-white')
+                        uIcon.classList.add('text-black')
+                    }
+
 
                 }
             } else {
@@ -87,6 +101,10 @@
                         e.classList.remove('nl-black')
                         e.classList.add('nl-white')
                     })
+                    if (isLoggedIn) {
+                        uIcon.classList.remove('text-black')
+                        uIcon.classList.add('text-white')
+                    }
 
                 }
 
@@ -103,7 +121,10 @@
                     e.classList.add('text-white')
                     e.classList.remove('text-black')
                 })
-
+                if (isLoggedIn) {
+                    uIcon.classList.remove('text-black')
+                    uIcon.classList.add('text-white')
+                }
 
             }
         } else {
@@ -119,7 +140,12 @@
                     e.classList.add('nl-black')
                     e.classList.remove('nl-white')
                 });
+                if (isLoggedIn) {
+                    uIcon.classList.remove('text-white')
+                    uIcon.classList.add('text-black')
+                }
             }
+
         }
 
 
@@ -128,16 +154,37 @@
                 window.addEventListener("scroll", handleScroll);
                 nav.classList.remove("bg-white", "pt-0", "shadow-md");
                 nav.classList.add("bg-transparent", "pt-7", "shadow-none");
-                if (navList[0].classList.contains('nl-white') || navList[0].classList.contains(
-                        'nl-black')) {
-                    img.src = "assets/images/goker-gelap.png";
-                    navList.forEach(e => {
-                        e.classList.add('text-white')
-                        e.classList.remove('text-black')
-                        e.classList.remove('nl-black')
-                        e.classList.add('nl-white')
-                    })
+                if (!(currentRoute === 'login' || currentRoute === 'register')) {
+
+                    if (navList[0].classList.contains('nl-white') || navList[0].classList.contains(
+                            'nl-black')) {
+                        img.src = "assets/images/goker-gelap.png";
+                        navList.forEach(e => {
+                            e.classList.add('text-white')
+                            e.classList.remove('text-black')
+                            e.classList.remove('nl-black')
+                            e.classList.add('nl-white')
+                        })
+                        if (isLoggedIn) {
+                            uIcon.classList.remove('text-black')
+                            uIcon.classList.add('text-white')
+                        }
+
+                    }
+                } else {
+                    if (navList[0].classList.contains('nl-white') || navList[0].classList.contains(
+                            'nl-black')) {
+                        img.src = "assets/images/goker-cerah.png";
+                        navList.forEach(e => {
+                            e.classList.remove('text-white')
+                            e.classList.add('text-black')
+                            e.classList.add('nl-black')
+                            e.classList.remove('nl-white')
+                        })
+                    }
                 }
+
+
             } else {
                 window.removeEventListener("scroll", handleScroll);
                 nav.classList.add("bg-white", "pt-0", "shadow-md");
@@ -150,6 +197,10 @@
                         e.classList.add('nl-black')
                         e.classList.remove('nl-white')
                     });
+                    if (isLoggedIn) {
+                        uIcon.classList.remove('text-white')
+                        uIcon.classList.add('text-black')
+                    }
                 }
             }
         });

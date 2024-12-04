@@ -1,7 +1,7 @@
 <x-html>
 
     <body class="bg-white z-auto">
-        <x-navBefore></x-navBefore>
+        <x-nav-before></x-nav-before>
 
         <video class="absolute top-0 left-0 w-screen h-screen object-cover -z-10" autoplay muted loop>
             <source src="{{ asset('assets/videos/gojek-banner.webm') }}" type="video/mp4">
@@ -24,14 +24,14 @@
 
             <div class="relative flex flex-col items-center md:flex-row sm:justify-evenly text-white">
 
-                <x-HomeCard asset="assets/images/icon-helm.svg"
+                <x-home-card asset="assets/images/icon-helm.svg"
                     title="Gabung jadi bagian dari gojek, bangun kariermu sekarang!" color="#496D1C"
                     description="Bergabunglah dengan Gojek dan mulailah perjalanan karier Anda di perusahaan teknologi terkemuka, penuh peluang dan tantangan." />
-                <x-HomeCard asset="assets/images/icon-shop.svg"
+                <x-home-card asset="assets/images/icon-shop.svg"
                     title="Gabung dengan Gojek, Buka Peluang Karier Tanpa Batas!" color="#741D50"
                     description="
 Jadilah bagian dari Gojek dan wujudkan potensi terbaik Anda. Bersama kami, bangun masa depan yang penuh makna dan peluang tak terbatas." />
-                <x-HomeCard asset="assets/images/icon-id-card.svg"
+                <x-home-card asset="assets/images/icon-id-card.svg"
                     title="Gabung Gojek, Karier Cemerlang Dimulai di Sini!" color="#195D68"
                     description="Gojek adalah tempat di mana karier cemerlang dimulai. Dapatkan kesempatan untuk berkembang dan memberikan dampak positif." />
             </div>
@@ -77,12 +77,12 @@ Jadilah bagian dari Gojek dan wujudkan potensi terbaik Anda. Bersama kami, bangu
             </h1>
 
             <div class="flex flex-col items-center gap-24 text-white pb-20">
-                <x-HomePromotionCard
+                <x-home-promotion-card
                     title='Gabung dengan kami untuk menyokong para driver kami dengan aplikasi yang dapat diandalkan.'
                     color='#6CC24A' :button='false' asset='assets/images/card-gojek.svg' />
-                <x-HomePromotionCard title='Inovasi yang memajukan dengan memanfaatkan teknologi sekitar.'
+                <x-home-promotion-card title='Inovasi yang memajukan dengan memanfaatkan teknologi sekitar.'
                     color='#FF7F32' :button='false' asset='assets/images/card-dev.svg' />
-                <x-HomePromotionCard
+                <x-home-promotion-card
                     title='Kami berdedikasi untuk menciptakan dampak sosial-ekonomi positif bagi ekosistem kami.'
                     color='#00AA13' :button='true' asset='assets/images/card-street.svg' />
             </div>
