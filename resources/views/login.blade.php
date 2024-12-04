@@ -4,7 +4,7 @@
         {{-- <x-navAfter></x-navAfter> --}}
         <x-navBefore></x-navBefore>
         {{-- <x-navWhile></x-navWhile> --}}
-        <div class="relative flex items-center justify-center h-screen">
+        <div class="relative flex items-center justify-center h-screen pt-[70px]">
             <!-- Lingkaran dekoratif -->
             <div
                 class="absolute w-[30vw] h-[30vw] bg-green-500 bg-opacity-20 rounded-full top-[15vh] left-[10vw] z-[-2 ]">
@@ -17,7 +17,7 @@
             </div>
 
             <div
-                class="flex flex-col md:flex-row w-full max-w-6xl items-center justify-center md:justify-between px-4 sm:px-10 md:px-20 mt-10 md:mt-0 ">
+                class="  flex flex-col md:flex-row w-full max-w-6xl items-center justify-center md:justify-between px-4 sm:px-10 md:px-20 mt-10 md:mt-0 ">
                 <!-- Gambar -->
                 <div class="w-full md:w-[50%] hidden md:flex justify-center">
                     <img src="{{ asset('assets/images/logo/login-image.png') }}" alt="" class="max-w-full">
@@ -33,13 +33,14 @@
                             <div class="flex flex-row items-center w-full h-[60px] bg-[#F7CE55] rounded-full px-4">
                                 <i class="text-[#DA8500] fas fa-user"></i>
                                 <input type="text" id="username" name="username" placeholder="Nama pengguna"
-                                    class="flex-1 bg-transparent outline-none text-[#C06100] placeholder-[#EF9334] ml-3">
+                                    class="flex-1 bg-transparent outline-none text-[#C06100] placeholder-[#EF9334] ml-3 font-mn book">
                             </div>
                             <!-- Input Password -->
                             <div class="flex flex-row items-center w-full h-[60px] bg-[#F7CE55] rounded-full px-4">
                                 <i class="text-[#DA8500] fas fa-lock"></i>
                                 <input type="password" id="password" name="password" placeholder="Kata sandi"
-                                    class="flex-1 bg-transparent outline-none text-[#C06100] placeholder-[#EF9334] ml-3">
+                                    class="flex-1 bg-transparent outline-none text-[#C06100] placeholder-[#EF9334] font-mn book ml-3">
+                                <i id="toggle-password" class="ml-3 fas fa-eye text-[#DA8500] cursor-pointer"></i>
                             </div>
                         </div>
 
@@ -54,16 +55,17 @@
                             <label class="hover:underline cursor-pointer">Lupa kata sandi?</label>
                         </div>
 
+
                         <!-- Tombol Masuk dengan Google -->
                         <button type="button"
-                            class="w-full py-3 bg-white text-black font-medium rounded-full mb-4 hover:bg-green-600 flex items-center justify-center">
+                            class="w-full py-3 bg-white text-black font-medium rounded-full mb-4 hover:bg-[#FFBF00] flex items-center justify-center">
                             <img src="{{ asset('assets/images/logo-google.png') }}" alt="Google logo" class="h-4 mr-2">
                             Masuk dengan Google
                         </button>
 
                         <!-- Tombol Masuk -->
                         <button type="submit"
-                            class="w-full py-3 bg-white text-black font-medium rounded-full hover:bg-green-700">
+                            class="w-full py-3 bg-white text-black font-medium rounded-full hover:bg-[#FFBF00]">
                             Masuk
                         </button>
 
@@ -76,5 +78,31 @@
             </div>
         </div>
 
+
+        <script>
+            const passwordInput = document.getElementById('password');
+            const togglePassword = document.getElementById('toggle-password');
+
+            // Event listener untuk ikon toggle
+            togglePassword.addEventListener('click', () => {
+                const type = passwordInput.type === 'password' ? 'text' : 'password';
+                passwordInput.type = type;
+
+                // Ubah ikon mata
+                togglePassword.classList.toggle('fa-eye');
+                togglePassword.classList.toggle('fa-eye-slash');
+            });
+
+            const usernameInput = document.getElementById('username');
+            const warning = document.getElementById('warning');
+
+            usernameInput.addEventListener('input', () => {
+                if (usernameInput.value.length > 20) {
+                    warning.style.display = 'block';
+                } else {
+                    warning.style.display = 'none';
+                }
+            });
+        </script>
     </body>
 </x-html>
