@@ -21,16 +21,16 @@
             <h1 class="font-britBlack text-4xl sm:text-6xl w-full text-center pt-14 sm:pt-24 sm:pb-10">Tumbuh Bersama
                 Gojek
             </h1>
-            <div class="absolute w-96 h-96 bg-green-500 bg-opacity-20 rounded-full top-[40vh] left-[40vw] z-[-2]">
+            <div class="absolute w-96 h-96 bg-green-500 bg-opacity-20 rounded-full bottom-[0vh] left-[40vw] z-[-2]">
             </div>
             <div
-                class="absolute w-[324px] h-[326px] bg-[#F1D581] bg-opacity-50 rounded-full top-[20vh] left-[42vw] z-[-2]">
+                class="absolute w-[324px] h-[326px] bg-[#F1D581] bg-opacity-50 rounded-full bottom-[20vh] left-[22vw] md:left-[42vw] z-[-2]">
             </div>
             <div
-                class="absolute w-[404px] h-[396px] bg-green-500 bg-opacity-20 rounded-full top-[-5vh] right-[-5vw] z-[-2]">
+                class="absolute w-[404px] h-[396px] bg-green-500 bg-opacity-20 rounded-full top-[90vh] md:top-[-5vh] right-[-5vw] z-[-2]">
             </div>
             <div
-                class="absolute w-[324px] h-[326px] bg-[#F1D581] bg-opacity-50 rounded-full top-[20vh] right-[5vw] z-[-2]">
+                class="absolute w-[324px] h-[326px] bg-[#F1D581] bg-opacity-50 rounded-full top-[85vh] md:top-[20vh] right-[20vw] md:right-[5vw] z-[-2]">
             </div>
             <div
                 class="absolute w-[404px] h-[396px] bg-green-500 bg-opacity-20 rounded-full top-[15vh] left-[0vw] z-[-2]">
