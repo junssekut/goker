@@ -2,7 +2,10 @@
 
 Goker is an website application, TBA, On Development, docs will be updated.
 
-![goker image](public/assets/images/goker-cerah.png)
+<div style="text-align: center; background-color: white; padding: 10px;">
+    <img src="public/assets/images/goker-cerah.png" alt="goker image" style="max-width: 100%; height: auto;">
+</div>
+
 
 ## Installation
 
