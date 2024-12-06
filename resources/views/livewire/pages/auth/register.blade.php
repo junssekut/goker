@@ -32,7 +32,7 @@ new #[Layout('layouts.html')] class extends Component {
 
         Auth::login($user);
 
-        $this->redirect(route('home', absolute: false), navigate: true);
+        $this->redirect(route('profile', absolute: false), navigate: true);
     }
 }; ?>
 
@@ -93,9 +93,6 @@ new #[Layout('layouts.html')] class extends Component {
                                 <x-text-input wire:model="password" type="password" id="password"
                                     placeholder="Kata sandi" name="password"
                                     class="flex-1 bg-transparent outline-none text-[#C06100] placeholder-[#EF9334] ml-3" />
-
-
-
                             </div>
                             <div>
                                 <x-input-error :messages="$errors->get('password')" />
@@ -110,15 +107,12 @@ new #[Layout('layouts.html')] class extends Component {
                                     id="password_confirmation" name="password_confirmation"
                                     placeholder="Konfirmasi Kata sandi"
                                     class="flex-1 bg-transparent outline-none text-[#C06100] placeholder-[#EF9334] ml-3" />
-
-
                             </div>
                             <div>
                                 <x-input-error :messages="$errors->get('password_confirmation')" />
                             </div>
                         </div>
                     </div>
-
 
                     <!-- Tombol Submit -->
                     <div class="flex flex-col  px-2 my-4 text-white">
@@ -135,8 +129,6 @@ new #[Layout('layouts.html')] class extends Component {
                         </div>
 
                     </div>
-
-
 
                     <button type="button"
                         class="w-full py-3 bg-white text-black font-medium rounded-full mb-4 duration-300 hover:bg-[#F09A1F] flex items-center justify-center hover:text-white">
@@ -159,5 +151,4 @@ new #[Layout('layouts.html')] class extends Component {
             </div>
         </div>
     </div>
-
 </div>

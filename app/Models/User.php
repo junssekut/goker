@@ -33,6 +33,16 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+    
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($user) {
+            // Automatically create a UserProfile for the new user
+            $user->profile()->create();
+        });
+    }
 
     /**
      * Get the attributes that should be cast.
@@ -45,5 +55,11 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    // Define the relationship with the UserProfile model
+    public function profile()
+    {
+        return $this->hasOne(UserProfile::class);  // The foreign key is 'user_id' in the UserProfile table
     }
 }

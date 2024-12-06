@@ -1,11 +1,8 @@
 <x-html>
 
     <body class="bg-gradient-to-b from-white to-[#F7CE55] h-100">
-        {{-- <x-navAfter></x-navAfter> --}}
         <x-navBefore></x-navBefore>
-        {{-- <x-navWhile></x-navWhile> --}}
         <div class="relative flex items-center justify-center h-screen pt-[70px]">
-            <!-- Lingkaran dekoratif -->
             <div
                 class="absolute w-[30vw] h-[30vw] bg-green-500 bg-opacity-20 rounded-full top-[15vh] left-[10vw] z-[-2 ]">
             </div>

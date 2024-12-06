@@ -35,8 +35,6 @@
                 list.classList.remove('h-auto');
                 list.classList.remove('opacity-100');
             }
-
-
         }
     </script>
     {{-- TODO: RAPIHIN FIX Z-INDEX --}}
@@ -45,6 +43,47 @@
             z-index: 100;
         }
     </style>
+
+    <script src="
+                                                                        https://cdn.jsdelivr.net/npm/hint.css@3.0.0/Gruntfile.min.js
+                                                                        "></script>
+    <link href="
+        https://cdn.jsdelivr.net/npm/hint.css@3.0.0/hint.min.css
+        " rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/selectize@0.12.6/dist/css/selectize.default.css">
+    <script src="https://cdn.jsdelivr.net/npm/selectize@0.12.6/dist/js/standalone/selectize.min.js"></script>
+
+
+    <style>
+        /* Custom error shake animation */
+        @keyframes error-shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            50% {
+                transform: translateX(5px);
+            }
+
+            75% {
+                transform: translateX(-5px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .animate-error-shake {
+            animation: error-shake 0.3s ease-out;
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 {{ $slot }}
