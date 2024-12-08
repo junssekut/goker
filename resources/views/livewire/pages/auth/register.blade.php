@@ -151,7 +151,7 @@ new #[Layout('layouts.html')] class extends Component {
 
             <div class="w-full
                             md:w-[50%] hidden md:flex justify-center">
-                <img src="{{ asset('assets/images/register.png') }}" alt="" class="max-w-full">
+                <img src="{{ asset('assets/images/goker-register.svg') }}" alt="" class="max-w-full">
             </div>
         </div>
     </div>

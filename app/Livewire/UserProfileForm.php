@@ -25,7 +25,12 @@ class UserProfileForm extends Component
         'name' => 'required|string|min:3',
         'nickname' => 'required|string',
         'birth_place' => 'required|string',
-        'dob' => 'required|date',
+        'dob' => [
+            'required',
+            'date',
+            'before:today',
+            'after:1900-01-01',
+        ],
         'gender' => 'required|string|in:F,M',
         'domicile' => 'required|string',
     ];
