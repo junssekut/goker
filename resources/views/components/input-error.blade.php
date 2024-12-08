@@ -1,11 +1,19 @@
 @props(['messages'])
 
-@if ($messages)
+{{-- @if ($messages)
     <ul {{ $attributes->merge(['class' => 'text-sm text-red-600 pt-2']) }}>
         @foreach ((array) $messages as $message)
-            <span class="hint--error" aria-label="{{ $message }}">
-                <li>{{ $message }}</li>
-            </span>
+            <li>{{ $message }}</li>
+        @endforeach
+    </ul>
+@endif --}}
+
+@if ($messages)
+    <ul x-data="{ show: false }" x-show="show" x-transition
+        {{ $attributes->merge(['class' => 'text-sm text-red-600 pt-2']) }}
+        @input_error.window="show = true; setTimeout(() => show = false, 2000)">
+        @foreach ((array) $messages as $message)
+            <li>{{ $message }}</li>
         @endforeach
     </ul>
 @endif

@@ -20,7 +20,7 @@ new #[Layout('layouts.html')] class extends Component {
      */
     public function register(): void
     {
-        $this->dispatch('input_error');
+        $this->dispatch('errorupdated');
 
         $validated = $this->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -28,7 +28,6 @@ new #[Layout('layouts.html')] class extends Component {
             'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
             'agreement' => 'required',
         ]);
-
         $validated['password'] = Hash::make($validated['password']);
 
         event(new Registered(($user = User::create($validated))));
@@ -53,21 +52,22 @@ new #[Layout('layouts.html')] class extends Component {
                 class="w-full mt-10 md:w-[40%] max-w-md p-8 rounded-3xl bg-[#00AA13] flex flex-col items-center shadow-[20px_20px_0_rgba(0,0,0,0.2)]">
                 <h2 class="text-xl text-center font-bold text-white mt-4 mb-6">Bergabung menjadi Gokers!</h2>
 
-                <form wire:submit.prevent="register" class="w-full">
+                <form wire:submit="register" class="w-full">
                     @csrf
                     <div class="flex flex-col gap-5">
                         <!-- Input Username -->
                         <div>
                             <div class="flex flex-row items-center w-full h-auto py-3 bg-[#F7CE55] rounded-full px-4">
                                 <i class="text-[#DA8500] fas fa-user"></i>
-                                <x-text-input wire:model="name" type="text" id="name" placeholder="Nama Lengkap"
-                                    name="name"
+                                <x-text-input wire:model="name" type="text" id="name"
+                                    placeholder="Nama pengguna" name="name"
                                     class="flex-1 bg-transparent outline-none text-[#C06100] placeholder-[#EF9334] ml-3" />
                             </div>
                             <div>
                                 <x-input-error :messages="$errors->get('name')" />
                             </div>
                         </div>
+
 
                         <!-- Input Email -->
                         <div>
@@ -76,6 +76,8 @@ new #[Layout('layouts.html')] class extends Component {
                                 <x-text-input wire:model="email" type="email" id="email" placeholder="Email"
                                     name="email"
                                     class="flex-1 bg-transparent outline-none text-[#C06100] placeholder-[#EF9334] ml-3" />
+
+
                             </div>
                             <div>
                                 <x-input-error :messages="$errors->get('email')" />

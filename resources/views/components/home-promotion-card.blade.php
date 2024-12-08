@@ -13,7 +13,8 @@
             <h1 class="font-britHeavy text-2xl p-8 pb-4 w-full md:w-[449px]">
                 {{ $title }}
             </h1>
-            <p class="font-britHeavy text-base px-8 text-kuningGojek">{{ 'Gabung Sekarang →' }}</p>
+            <a href="/career"
+                class="font-britHeavy text-base px-8 text-kuningGojek hover:text-kuningTuaGojek transition duration-300 ease-in-out">{{ 'Gabung Sekarang →' }}</a>
         @endif
     </div>
     <img class="object-cover max-w-[380px] md:h-[224px]" src="{{ asset($asset) }}">

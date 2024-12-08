@@ -13,6 +13,8 @@ new #[Layout('layouts.html')] class extends Component {
      */
     public function login(): void
     {
+        $this->dispatch('input_error');
+
         $this->validate();
 
         $this->form->authenticate();
@@ -51,10 +53,9 @@ new #[Layout('layouts.html')] class extends Component {
                         <div>
                             <div class="flex flex-row items-center w-full h-[60px] bg-[#F7CE55] rounded-full px-4">
                                 <i class="text-[#DA8500] fas fa-user"></i>
-                                <input wire:model="form.email" type="email" id="email" name="email"
+                                <x-text-input wire:model="form.email" type="email" id="email" name="email"
                                     placeholder="Email"
-                                    class="flex-1 bg-transparent outline-none text-[#C06100] placeholder-[#EF9334] ml-3"
-                                    required autofocus>
+                                    class="flex-1 bg-transparent outline-none text-[#C06100] placeholder-[#EF9334] ml-3" />
                             </div>
                             <x-input-error :messages="$errors->get('form.email')" />
                         </div>
@@ -64,8 +65,7 @@ new #[Layout('layouts.html')] class extends Component {
                                 <i class="text-[#DA8500] fas fa-lock"></i>
                                 <input wire:model="form.password" type="password" id="password" name="password"
                                     placeholder="Kata sandi"
-                                    class="flex-1 bg-transparent outline-none text-[#C06100] placeholder-[#EF9334] ml-3"
-                                    required>
+                                    class="flex-1 bg-transparent outline-none text-[#C06100] placeholder-[#EF9334] ml-3">
                             </div>
                             <x-input-error :messages="$errors->get('form.password')" />
                         </div>

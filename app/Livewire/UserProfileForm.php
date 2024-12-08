@@ -2,6 +2,8 @@
 
 namespace App\Livewire;
 
+use Debugbar;
+
 use App\Models\UserProfile;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
@@ -42,12 +44,15 @@ class UserProfileForm extends Component
 
     public function nextStep()
     {
+        $this->dispatch('input_error');
+     
         $this->validate();
-        $this->step++;
+        $this->step++;   
     }
 
     public function submitProfile()
     {
+        $this->dispatch('input_error');
         $this->validate();
 
         // Save or update the profile
@@ -67,6 +72,7 @@ class UserProfileForm extends Component
             ]
         );
 
+        
         session()->flash('message', 'Profile successfully saved!');
         return redirect()->route('home');
     }
