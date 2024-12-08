@@ -79,7 +79,7 @@ new #[Layout('layouts.html')] class extends Component {
                         @if (Route::has('password.request'))
                             <a href="{{ route('password.request') }}"
                                 class="hover:underline hover:text-black text-sm text-white duration-200">
-                                Lupa kata sandi?
+                                Gokers lupa kata sandi?
                             </a>
                         @endif
                     </div>

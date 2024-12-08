@@ -157,7 +157,7 @@
                 window.addEventListener("scroll", handleScroll);
                 nav.classList.remove("bg-white", "pt-0", "shadow-md");
                 nav.classList.add("bg-transparent", "pt-7", "shadow-none");
-                if (!(currentRoute === 'login' || currentRoute === 'register')) {
+                if (!(currentRoute === 'login' || currentRoute === 'register' || currentRoute === 'profile')) {
 
                     if (navList[0].classList.contains('nl-white') || navList[0].classList.contains(
                             'nl-black')) {
