@@ -50,7 +50,7 @@ new #[Layout('layouts.html')] class extends Component {
         </div>
         <div class="flex flex-col md:flex-row w-full max-w-6xl items-center justify-evenly md:mt-0 ">
             <div
-                class="w-full mt-10 md:w-[40%] max-w-md p-8 rounded-3xl bg-[#00AA13] flex flex-col items-center shadow-[20px_20px_0_rgba(0,0,0,0.2)]">
+                class="w-full mt-20 md:w-[40%] max-w-md p-8 rounded-3xl bg-[#00AA13] flex flex-col items-center shadow-[20px_20px_0_rgba(0,0,0,0.2)]">
                 <h2 class="text-xl text-center font-bold text-white mt-4 mb-6">Bergabung menjadi Gokers!</h2>
 
                 <form wire:submit.prevent="register" class="w-full">
@@ -118,7 +118,7 @@ new #[Layout('layouts.html')] class extends Component {
 
                             <input wire:model="agreement" id="agreement" type="checkbox" class="custom-checkbox"
                                 name="agreement" />
-                            <label for="agreement" class="ml-2 text-sm text-black">
+                            <label for="agreement" class="ml-2 text-sm text-white">
                                 {{ __('Saya siap menjadi Gokers') }}
                             </label>
                         </div>
@@ -128,17 +128,23 @@ new #[Layout('layouts.html')] class extends Component {
 
                     </div>
 
+                    <button type="submit"
+                        class="w-full py-3 bg-white text-black font-medium rounded-full mb-4 duration-300 hover:bg-[#F09A1F] hover:text-white">
+                        Daftar
+                    </button>
+
                     <button type="button"
-                        class="w-full py-3 bg-white text-black font-medium rounded-full mb-4 duration-300 hover:bg-[#F09A1F] flex items-center justify-center hover:text-white">
+                        class="w-full py-3 bg-white text-black font-medium rounded-full  duration-300 hover:bg-[#F09A1F] flex items-center justify-center hover:text-white">
                         <img src="{{ asset('assets/images/logo-google.png') }}" alt="Google logo" class="h-4 mr-2">
                         Daftar dengan Google
                     </button>
 
                     <!-- Tombol Masuk -->
-                    <button type="submit"
-                        class="w-full py-3 bg-white text-black font-medium rounded-full duration-300 hover:bg-[#F09A1F] hover:text-white">
-                        Daftar
-                    </button>
+
+                    <div class="text-center mt-4 text-white">
+                        <p>Gokers sudah punya akun? <a href="{{ route('login') }}"
+                                class="text-[#F7CE55] underline hover:text-black duration-200">Masuk</a></p>
+                    </div>
 
                 </form>
             </div>

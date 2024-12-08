@@ -1,12 +1,13 @@
-<nav
+<nav wire:ignore
     class="navbar justify-around md:flex md:items-center w-full md:px-44 md:justify-between rounded-bl-2xl rounded-br-2xl
             h-24 md:h-auto fixed pt-7 bg-transparent backdrop-blur-0 transition-all duration-700 shadow-none z-[9999]
             ">
     <div class="flex justify-between items-center md:flex-none">
         <span class="h-24 flex items-center pl-5 md:pl-0">
-            <img class="goker-logo w-full h-12 cursor-pointer"
-                src="{{ Route::is('home') ? asset('assets/images/goker-gelap.png') : asset('assets/images/goker-cerah.png') }}"
-                alt="">
+            <a href="{{ Route::is('home') ? '#' : route('home') }}"><img class="goker-logo w-full h-12 cursor-pointer"
+                    src="{{ Route::is('home') ? asset('assets/images/goker-gelap.png') : asset('assets/images/goker-cerah.png') }}"
+                    alt="">
+            </a>
         </span>
 
         <span class="text-5xl cursor-pointer md:hidden block pr-6">
@@ -56,7 +57,9 @@
 </nav>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    initNav()
+
+    function initNav() {
         const isLoggedIn = @json(Auth::check());
         let uIcon;
         if (isLoggedIn) {
@@ -154,7 +157,7 @@
                 window.addEventListener("scroll", handleScroll);
                 nav.classList.remove("bg-white", "pt-0", "shadow-md");
                 nav.classList.add("bg-transparent", "pt-7", "shadow-none");
-                if (!(currentRoute === 'login' || currentRoute === 'register')) {
+                if (!(currentRoute === 'login' || currentRoute === 'register' || currentRoute === 'profile')) {
 
                     if (navList[0].classList.contains('nl-white') || navList[0].classList.contains(
                             'nl-black')) {
@@ -204,5 +207,5 @@
                 }
             }
         });
-    });
+    }
 </script>

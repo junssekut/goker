@@ -13,13 +13,14 @@ new #[Layout('layouts.html')] class extends Component {
      */
     public function login(): void
     {
-        $this->dispatch('input_error');
-
         $this->validate();
+        $this->dispatch('input_error');
 
         $this->form->authenticate();
 
         Session::regenerate();
+
+        $this->dispatch('initnav');
 
         $this->redirectIntended(default: route('home', absolute: false), navigate: true);
     }
@@ -73,27 +74,25 @@ new #[Layout('layouts.html')] class extends Component {
 
                     <div class="flex flex-row justify-between items-center px-2 my-4 text-white">
                         <!-- Kotak Centang -->
-                        <div class="flex items-center">
-                            <input wire:model="form.remember" type="checkbox" id="remember" class="custom-checkbox">
-                            <label for="remember" class="ml-2 text-white">Ingat saya</label>
-                        </div>
+
                         <!-- Lupa Kata Sandi -->
                         @if (Route::has('password.request'))
-                            <a href="{{ route('password.request') }}" class="hover:underline text-sm text-white">
-                                Lupa kata sandi?
+                            <a href="{{ route('password.request') }}"
+                                class="hover:underline hover:text-black text-sm text-white duration-200">
+                                Gokers lupa kata sandi?
                             </a>
                         @endif
                     </div>
 
                     <!-- Tombol Masuk -->
                     <button type="submit"
-                        class="w-full py-3 bg-white text-black font-medium rounded-full hover:bg-green-700 duration-300 hover:text-white">
+                        class="w-full py-3 bg-white text-black font-medium rounded-full duration-300 hover:bg-[#F09A1F] hover:text-white">
                         Masuk
                     </button>
 
                     <div class="text-center mt-4 text-white">
                         <p>Gokers belum punya akun? <a href="{{ route('register') }}"
-                                class="text-[#F7CE55] underline">Daftar</a></p>
+                                class="text-[#F7CE55] underline hover:text-black duration-200">Daftar</a></p>
                     </div>
                 </form>
             </div>
