@@ -1,7 +1,7 @@
 <x-html>
 
     <body class="bg-gradient-to-b from-white to-[#F7CE55] h-100">
-        <x-navBefore></x-navBefore>
+        {{-- <x-navBefore></x-navBefore> --}}
         <div class="relative flex items-center justify-center h-screen pt-[70px]">
             <div
                 class="absolute w-[30vw] h-[30vw] bg-green-500 bg-opacity-20 rounded-full top-[15vh] left-[10vw] z-[-2 ]">
@@ -24,13 +24,13 @@
                     class="w-full md:w-[40%] max-w-md p-8 rounded-3xl bg-[#00AA13] flex flex-col items-center shadow-[-20px_20px_0_rgba(0,0,0,0.2)]">
                     <h2 class="text-xl text-center font-bold text-white mt-4 mb-6">Selamat datang, Gokers!</h2>
 
-                    <form action="#" method="post" class="w-full">
+                    <form action="#" method="post" class="w-full font-mnbook">
                         <div class="flex flex-col gap-5">
                             <!-- Input Username -->
                             <div class="flex flex-row items-center w-full h-[60px] bg-[#F7CE55] rounded-full px-4">
                                 <i class="text-[#DA8500] fas fa-user"></i>
                                 <input type="text" id="username" name="username" placeholder="Nama pengguna"
-                                    class="flex-1 bg-transparent outline-none text-[#C06100] placeholder-[#EF9334] ml-3 font-mn book">
+                                    class="flex-1 bg-transparent outline-none text-[#C06100] placeholder-[#EF9334] ml-3">
                             </div>
                             <!-- Input Password -->
                             <div class="flex flex-row items-center w-full h-[60px] bg-[#F7CE55] rounded-full px-4">
@@ -67,7 +67,8 @@
                         </button>
 
                         <div class="text-center mt-4 text-white">
-                            <p>Gokers belum punya akun? <a href="" class="text-[#F7CE55] underline">Daftar</a>
+                            <p>Gokers belum punya akun? <a href=""
+                                    class="text-[#F7CE55] underline hover:text-white">Daftar</a>
                             </p>
                         </div>
                     </form>
