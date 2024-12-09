@@ -1,10 +1,10 @@
-<div class="bg-gradient-to-b from-white to-unguGojek h-100">
+<div class="bg-gradient-to-b from-white to-unguGojek h-100 f">
     <x-nav-before></x-nav-before>
     <div class="relative flex items-center justify-center h-screen">
         <div class="flex flex-col md:flex-row w-full max-w-6xl items-center justify-evenly md:mt-0">
             <div
                 class="w-full mt-10 md:w-[50%] max-w-lg p-8 rounded-3xl bg-[#00AA13] flex flex-col items-center shadow-[20px_20px_0_rgba(0,0,0,0.2)]">
-                <h2 class="text-xl text-center font-bold text-white mt-4 mb-6">
+                <h2 class="text-3xl text-center font-britBlack text-white mt-4 mb-6">
                     @if ($step == 1)
                         Dua langkah menuju Gokers sejati
                     @else
@@ -12,7 +12,7 @@
                     @endif
                 </h2>
 
-                <form wire:submit.prevent="{{ $step == 1 ? 'nextStep' : 'submitProfile' }}" class="w-full">
+                <form wire:submit.prevent="{{ $step == 1 ? 'nextStep' : 'submitProfile' }}" class="w-full font-mnbook">
                     @csrf
                     <div class="flex flex-col gap-5">
                         <!-- Step 1 Fields -->

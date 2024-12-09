@@ -14,6 +14,7 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
                 'mn book': ['MnBook'],
+                'mnbook': ['MnBook'],
                 'mnbold': ['MnBold'],
                 'britReg': ['britReg'],
                 'britHeavy': ['britHeavy'],
