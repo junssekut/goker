@@ -1,10 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use Illuminate\Support\Facades\Response;
-
 use Livewire\Volt\Volt;
-
 use App\Livewire\CareerDetailPage;
 
 Route::get('career-detail', CareerDetailPage::class)->name('career-detail');
@@ -14,10 +13,10 @@ Route::view('/register', 'register')->name('register');
 Route::view('/login', 'login')->name('login');
 Route::view('/dev', 'login')->name('dev');
 
+
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
-
 
 // Route::get('/preview-pdf/{filename}', function ($filename) {
 //     $path = storage_path('app/public/temp_cv/' . $filename);
