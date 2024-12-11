@@ -1,13 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Response;
+use App\http\Controllers\CareerDetailController;
+use App\Models\Career;
 
 use Livewire\Volt\Volt;
 
 use App\Livewire\CareerDetailPage;
 
-Route::get('career-detail', CareerDetailPage::class)->name('career-detail');
+// Route::prefix('career-detail')->group(function () {
+//     Route::get('/{id]', CareerDetailPage::class);
+// });
+
+
+Route::get('/career-detail/{id}', CareerDetailPage::class)->name('career-detail');
 
 Route::view('/', 'home')->name('home');
 Route::view('/register', 'register')->name('register');
