@@ -18,8 +18,8 @@ class LoginForm extends Form
     #[Validate('required|string')]
     public string $password = '';
 
-    #[Validate('boolean')]
-    public bool $remember = false;
+    #[Validate('required|string|in:user,hrd,admin')]
+    public bool $role = false;
 
     /**
      * Attempt to authenticate the request's credentials.

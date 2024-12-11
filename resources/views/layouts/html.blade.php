@@ -46,8 +46,8 @@
 
     <script
         src="
-                                                                                                                                                                                        https://cdn.jsdelivr.net/npm/hint.css@3.0.0/Gruntfile.min.js
-                                                                                                                                                                                        ">
+                                                                                                                                                                                                https://cdn.jsdelivr.net/npm/hint.css@3.0.0/Gruntfile.min.js
+                                                                                                                                                                                                ">
     </script>
     <link href="
         https://cdn.jsdelivr.net/npm/hint.css@3.0.0/hint.min.css
@@ -86,6 +86,8 @@
     </style>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js" defer></script>
+
 </head>
 
 {{ $slot }}
