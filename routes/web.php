@@ -16,3 +16,6 @@ Route::view('dashboard', 'dashboard')
     ->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+use App\Models\HRD;
+
