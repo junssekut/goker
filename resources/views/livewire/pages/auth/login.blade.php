@@ -45,10 +45,11 @@ new #[Layout('layouts.html')] class extends Component {
             </div>
             <!-- Form -->
             <div
-                class="w-full md:w-[40%] max-w-md p-8 rounded-3xl bg-[#00AA13] flex flex-col items-center shadow-[-20px_20px_0_rgba(0,0,0,0.2)]">
-                <h2 class="text-xl text-center font-bold text-white mt-4 mb-6">Selamat datang, Gokers!</h2>
+                class="w-full md:w-[501px] max-w-md p-8 rounded-3xl bg-[#00AA13] flex flex-col items-center shadow-[-20px_20px_0_rgba(0,0,0,0.2)]">
+                <h2 class="text-3xl text-center text-white mt-4 mb-6 font-britBlack">Selamat datang, Gokers!
+                </h2>
 
-                <form wire:submit.prevent="login" class="w-full">
+                <form wire:submit.prevent="login" class="w-full font-mnbook">
                     <div class="flex flex-col gap-5">
                         <!-- Input Email -->
                         <div>
@@ -78,21 +79,26 @@ new #[Layout('layouts.html')] class extends Component {
                         <!-- Lupa Kata Sandi -->
                         @if (Route::has('password.request'))
                             <a href="{{ route('password.request') }}"
-                                class="hover:underline hover:text-black text-sm text-white duration-200">
+                                class="hover:underline text-sm text-white duration-200">
                                 Gokers lupa kata sandi?
                             </a>
                         @endif
                     </div>
 
-                    <!-- Tombol Masuk -->
                     <button type="submit"
-                        class="w-full py-3 bg-white text-black font-medium rounded-full duration-300 hover:bg-[#F09A1F] hover:text-white">
+                        class="w-full py-3 bg-white rounded-full duration-300 hover:bg-[#F09A1F] hover:text-white font-mnbook">
                         Masuk
                     </button>
 
-                    <div class="text-center mt-4 text-white">
+                    <button type="button"
+                        class="w-full py-3 bg-white text-black font-mnbook rounded-full  duration-300 hover:bg-[#F09A1F] flex items-center justify-center hover:text-white my-3">
+                        <img src="{{ asset('assets/images/logo-google.png') }}" alt="Google logo" class="h-4 mr-2">
+                        Masuk dengan Google
+                    </button>
+
+                    <div class="text-center mt-4 text-white font-mnbook">
                         <p>Gokers belum punya akun? <a href="{{ route('register') }}"
-                                class="text-[#F7CE55] underline hover:text-black duration-200">Daftar</a></p>
+                                class="text-[#F7CE55] hover:text-white hover:underline duration-200">Daftar</a></p>
                     </div>
                 </form>
             </div>

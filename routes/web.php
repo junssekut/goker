@@ -12,8 +12,7 @@ Route::get('career-detail', CareerDetailPage::class)->name('career-detail');
 Route::view('/', 'home')->name('home');
 Route::view('/register', 'register')->name('register');
 Route::view('/login', 'login')->name('login');
-Route::view('/dev', 'datadiri')->name('dev');
-// Route::view('/career-detail', 'career_detail')->name('career-detail');
+Route::view('/dev', 'login')->name('dev');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
