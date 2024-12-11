@@ -19,8 +19,22 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
-            'password' =>'12345678'
+            'password' =>'12345678',
             'role' => 'user'
+        ]);
+
+        User::factory()->create([
+            'name' => 'Test HRD',
+            'email' => 'hrd@example.com',
+            'password' =>'hrd',
+            'role' => 'hrd'
+        ]);
+
+        User::factory()->create([
+            'name' => 'Test Admin',
+            'email' => 'admin@example.com',
+            'password' =>'admin',
+            'role' => 'admin'
         ]);
 
         $this->call(CareerSeeder::class);
