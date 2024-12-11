@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Forms;
+namespace App\Livewire;
 
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Support\Facades\Auth;
@@ -10,19 +10,17 @@ use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
-class LoginForm extends Form
-{
-    #[Validate('required|string|email')]
-    public string $email = '';
 
-    #[Validate('required|string')]
+class HRDLoginForm extends Form
+{
+    #[Validate('required|string|min:3')]
+    public string $username = '';
+
+    #[Validate('required|string|min:5')]
     public string $password = '';
 
-    #[Validate('required|string|in:user,hrd,admin')]
-    public bool $role = false;
-
     /**
-     * Attempt to authenticate the request's credentials.
+     * Attempt to authenticate HRD's credentials.
      *
      * @throws \Illuminate\Validation\ValidationException
      */
@@ -30,11 +28,12 @@ class LoginForm extends Form
     {
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt($this->only(['email', 'password']), $this->remember)) {
+        if (! Auth::attempt(['username' => $this->username, 'password' => $this->password])) {
+            // Log::error('Login failed for username: ' . $this->username);
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'form.email' => trans('auth.failed'),
+                'form.username' => trans('auth.failed'),
             ]);
         }
 
@@ -55,7 +54,7 @@ class LoginForm extends Form
         $seconds = RateLimiter::availableIn($this->throttleKey());
 
         throw ValidationException::withMessages([
-            'form.email' => trans('auth.throttle', [
+            'form.username' => trans('auth.throttle', [
                 'seconds' => $seconds,
                 'minutes' => ceil($seconds / 60),
             ]),
@@ -67,6 +66,6 @@ class LoginForm extends Form
      */
     protected function throttleKey(): string
     {
-        return Str::transliterate(Str::lower($this->email).'|'.request()->ip());
+        return Str::transliterate(Str::lower($this->username).'|'.request()->ip());
     }
 }

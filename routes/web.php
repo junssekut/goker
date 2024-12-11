@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\http\Controllers\CareerDetailController;
 use App\Models\Career;
 
+use Illuminate\Support\Facades\Response;
 use Livewire\Volt\Volt;
-
 use App\Livewire\CareerDetailPage;
 
 // Route::prefix('career-detail')->group(function () {
@@ -18,13 +18,12 @@ Route::get('/career-detail/{id}', CareerDetailPage::class)->name('career-detail'
 Route::view('/', 'home')->name('home');
 Route::view('/register', 'register')->name('register');
 Route::view('/login', 'login')->name('login');
-Route::view('/dev', 'datadiri')->name('dev');
-// Route::view('/career-detail', 'career_detail')->name('career-detail');
+Route::view('/dev', 'login')->name('dev');
+
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
-
 
 // Route::get('/preview-pdf/{filename}', function ($filename) {
 //     $path = storage_path('app/public/temp_cv/' . $filename);
