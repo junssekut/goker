@@ -15,7 +15,7 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script defer>
@@ -46,8 +46,8 @@
 
     <script
         src="
-                                                                                                                                                                                                https://cdn.jsdelivr.net/npm/hint.css@3.0.0/Gruntfile.min.js
-                                                                                                                                                                                                ">
+                                                                                                                                                                                                        https://cdn.jsdelivr.net/npm/hint.css@3.0.0/Gruntfile.min.js
+                                                                                                                                                                                                        ">
     </script>
     <link href="
         https://cdn.jsdelivr.net/npm/hint.css@3.0.0/hint.min.css

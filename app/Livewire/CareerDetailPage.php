@@ -8,6 +8,7 @@ use App\Models\CareerDetail;
 use Livewire\Attributes\Layout;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Career;
 
 #[Layout('layouts.html')]
 class CareerDetailPage extends Component {
@@ -17,7 +18,8 @@ class CareerDetailPage extends Component {
     public $cvPreviewUrl;
     public $uploaded = false;
     public $finalPath;
-    public $index = 1;
+    public static $index = 1;
+    public $career;
 
     public $format;
 
@@ -29,8 +31,7 @@ class CareerDetailPage extends Component {
         ]);
 
         
-        $this->format = "CV_" . (string)$this->index . ".pdf";
-        $this->index++;
+        $this->format = "CV_" . (string)$this->career->id . "_" .  (string)Auth::user()->id . ".pdf";
 
         $this->cvPreviewUrl = $this->cv->storeAs('temp_cv', $this->format, 'public');
         $this->uploaded = true;
@@ -62,16 +63,26 @@ class CareerDetailPage extends Component {
         Storage::disk('public')->delete($this->cvPreviewUrl);
 
         
-        CareerDetail::Create(
+        CareerDetail::updateOrCreate(
             [
-            'user_id' => Auth::user()->id,
-               'cv' => $this->finalPath,
-               'score' => 0
+                'user_id' => Auth::user()->id,
+                'career_id' => $this->career->id,
+            ],
+            [
+                'cv' => $this->finalPath,
+                'score' => 0,
+                'date_updated' => now(), // Ensure that the date_updated field is set to the current timestamp
             ]
         );
 
+
         $this->reset(['cv', 'cvPreviewUrl', 'uploaded']);
         session()->flash('message', '"CV-mu berhasil dikirim ya Gokers!"');
+    }
+
+     public function mount($id)
+    {
+        $this->career = Career::with('detail')->findOrFail($id);
     }
 
     public function render()
