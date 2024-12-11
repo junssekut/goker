@@ -10,6 +10,7 @@ use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
+
 class HRDLoginForm extends Form
 {
     #[Validate('required|string|min:3')]

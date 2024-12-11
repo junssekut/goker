@@ -44,7 +44,7 @@ new #[Layout('layouts.html')] class extends Component {
             </h1>
 
             <!-- Form -->
-            <form wire:submit.prevent = "login" class="w-full md:w-[40%] max-w-2xl flex flex-col gap-6 pt-3">
+            <form wire:submit.prevent = "login" class="w-full md:w-[45%] max-w-2xl flex flex-col gap-6 pt-3 px-5">
                 @csrf
                 <!-- Username -->
                 <div class="flex flex-row items-center w-full h-[50px] bg-[#B45227] rounded-full px-4">
