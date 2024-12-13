@@ -12,7 +12,7 @@ Route::middleware('guest')->group(function () {
     Volt::route('login', 'pages.auth.login')
         ->name('login');
     
-     Volt::route('loginHrd', 'login-hrd')
+    Volt::route('loginHrd', 'login-hrd')
         ->name('loginHrd');
 
     Volt::route('forgot-password', 'pages.auth.forgot-password')

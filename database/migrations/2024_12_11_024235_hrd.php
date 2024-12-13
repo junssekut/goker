@@ -12,10 +12,14 @@ return new class extends Migration
     public function up(): void
     {
        Schema::create('hrd', function (Blueprint $table) {
-        $table->id();
-        $table->foreignId('hrd_id')->constrained('hrds')->onDelete('cascade'); // Relasi dengan HRD
-        $table->string('position');
-        $table->string('department');
+        $table->id()->primary();
+        // $table->foreignId('hrd_id')->constrained('hrds')->onDelete('cascade'); // Relasi dengan tabe; HRDS
+        $table->string('name');
+        $table->string('email')->unique();
+        $table->timestamp('email_verified_at')->nullable();
+        $table->string('password');
+        $table->string('role')->default('hrd');
+        $table->rememberToken();
         $table->timestamps();
     });
     }
