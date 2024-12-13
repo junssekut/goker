@@ -13,8 +13,8 @@ new #[Layout('layouts.html')] class extends Component {
      */
     public function login(): void
     {
+        $this->dispatch('input_error');
         $this->validate();
-        // $this->dispatch('input_error');
 
         $this->form->authenticate();
 
@@ -44,29 +44,28 @@ new #[Layout('layouts.html')] class extends Component {
             </h1>
 
             <!-- Form -->
-            <form wire:submit.prevent = "login" method="POST" action="{{ route('loginHrd') }}"
+            <form wire:submit.prevent="login" method="POST"
                 class="w-full md:w-[45%] max-w-2xl flex flex-col gap-6 pt-3 px-5">
                 @csrf
                 <!-- Username -->
                 <div class="flex flex-row items-center w-full h-[50px] bg-[#B45227] rounded-full px-4">
                     <i class="text-[#F9E7CB] fas fa-user"></i>
-                    <input type="text" id="hrdName" name="hrdName" placeholder="Nama pengguna"
-                        class="flex-1 bg-transparent outline-none text-[#F9E7CB] placeholder-[#F9E7CB] ml-3">
-                    {{-- @error('name')
-                        <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                    @enderror --}}
+                    <x-text-input wire:model="form.name" type="text" id="name" name="name" placeholder="Nama"
+                        class="flex-1 bg-transparent outline-none text-white placeholder-white ml-3" />
+
                 </div>
+                <x-input-error :messages="$errors->get('form.name')" />
 
                 <!-- Password -->
                 <div class="flex flex-row items-center w-full h-[50px] bg-[#B45227] rounded-full px-4">
                     <i class="text-[#F9E7CB] fas fa-lock"></i>
-                    <input type="password" id="password" name="password" placeholder="Kata sandi"
-                        class="flex-1 bg-transparent outline-none text-[#F9E7CB] placeholder-[#F9E7CB] font-mn book ml-3">
+                    <x-text-input wire:model="form.password" type="password" id="password" name="password"
+                        placeholder="Kata sandi"
+                        class="flex-1 bg-transparent outline-none text-white placeholder-white ml-3" />
                     <i id="toggle-password" class="ml-3 fas fa-eye text-[#F9E7CB] cursor-pointer"></i>
-                    {{-- @error('username')
-                        <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                    @enderror --}}
+
                 </div>
+                <x-input-error :messages="$errors->get('form.password')" />
 
                 <!-- Submit Button -->
                 <div>
@@ -76,39 +75,37 @@ new #[Layout('layouts.html')] class extends Component {
                     </button>
                 </div>
             </form>
-            @if ($errors->any())
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li style="color: red;">{{ $error }}</li>
-                    @endforeach
-                </ul>
-            @endif
         </div>
     </div>
 </div>
 
 <script>
-    const passwordInput = document.getElementById('password');
-    const togglePassword = document.getElementById('toggle-password');
+    toggle()
 
-    // Event listener untuk ikon toggle
-    togglePassword.addEventListener('click', () => {
-        const type = passwordInput.type === 'password' ? 'text' : 'password';
-        passwordInput.type = type;
+    function toggle() {
+        const passwordInput = document.getElementById('password');
+        const togglePassword = document.getElementById('toggle-password');
 
-        // Ubah ikon mata
-        togglePassword.classList.toggle('fa-eye');
-        togglePassword.classList.toggle('fa-eye-slash');
-    });
+        // Event listener untuk ikon toggle
+        togglePassword.addEventListener('click', () => {
+            const type = passwordInput.type === 'password' ? 'text' : 'password';
+            passwordInput.type = type;
 
-    const usernameInput = document.getElementById('username');
-    const warning = document.getElementById('warning');
+            // Ubah ikon mata
+            togglePassword.classList.toggle('fa-eye');
+            togglePassword.classList.toggle('fa-eye-slash');
+        });
 
-    usernameInput.addEventListener('input', () => {
-        if (usernameInput.value.length > 20) {
-            warning.style.display = 'block';
-        } else {
-            warning.style.display = 'none';
-        }
-    });
+        const usernameInput = document.getElementById('name');
+        const warning = document.getElementById('warning');
+
+        usernameInput.addEventListener('input', () => {
+            if (usernameInput.value.length > 20) {
+                warning.style.display = 'block';
+            } else {
+                warning.style.display = 'none';
+            }
+        });
+
+    }
 </script>
