@@ -19,7 +19,7 @@ class HRDLoginForm extends Form
     public string $password = '';
 
     public array $rules = [
-        'name' => 'required|alpha|min:3',
+        'name' => 'required|string|min:3',
         'password' => 'required|string|min:5',
     ];
 
@@ -36,12 +36,23 @@ class HRDLoginForm extends Form
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'name' => 'Nama tidak valid.',
-                'password' => 'Password tidak valid.',
+                $this->messages()
             ]);
         }
 
         RateLimiter::clear($this->throttleKey());
+    }
+
+    public function messages() {
+        return [
+            'name.required' => 'Nama wajib diisi.',
+            'name.alpha' => 'Nama hanya boleh berisi huruf.',
+            'name.min' => 'Nama harus memiliki minimal :min karakter.',
+            'password.required' => 'Password wajib diisi.',
+            'password.string' => 'Password harus berupa string.',
+            'password.min' => 'Password harus memiliki minimal :min karakter.',
+        ];
+
     }
 
     /**
