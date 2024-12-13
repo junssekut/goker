@@ -46,8 +46,8 @@
 
     <script
         src="
-                                                                                                                                                                                                        https://cdn.jsdelivr.net/npm/hint.css@3.0.0/Gruntfile.min.js
-                                                                                                                                                                                                        ">
+                                                                                                                                                                                                            https://cdn.jsdelivr.net/npm/hint.css@3.0.0/Gruntfile.min.js
+                                                                                                                                                                                                            ">
     </script>
     <link href="
         https://cdn.jsdelivr.net/npm/hint.css@3.0.0/hint.min.css
