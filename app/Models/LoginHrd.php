@@ -2,19 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-// database bang
-class LoginHrd extends Authenticatable
-{
+class LoginHrd extends Authenticatable {
     use HasFactory, Notifiable;
 
     protected $fillable = [
-        'username',
-        'password'
+        'name',
+        'email',
+        'password',
+        'role'
     ];
 
     protected $hidden = [
@@ -27,10 +27,14 @@ class LoginHrd extends Authenticatable
         parent::boot();
 
         static::created(function ($hrd) {
-            $hrd->profile()->create([
-                'position' => 'Default Position',  // Set default values
-                'department' => 'Default Department',
-            ]);
+            // Automatically create a UserProfile for the new user
+            $hrd->profile()->create();
         });
     }
+
+    public function profile()
+    {
+        return $this->hasOne(UserProfile::class);  // The foreign key is 'user_id' in the UserProfile table
+    }
+
 }

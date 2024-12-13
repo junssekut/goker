@@ -1,12 +1,12 @@
 <?php
 
-use App\Livewire\Forms\LoginHrdForm;
+use App\Livewire\HRDLoginForm;
 use Illuminate\Support\Facades\Session;
 use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
 
 new #[Layout('layouts.html')] class extends Component {
-    public LoginHrdForm $form;
+    public HRDLoginForm $form;
 
     /**
      * Handle an incoming authentication request.
@@ -14,7 +14,7 @@ new #[Layout('layouts.html')] class extends Component {
     public function login(): void
     {
         $this->validate();
-        $this->dispatch('input_error');
+        // $this->dispatch('input_error');
 
         $this->form->authenticate();
 
@@ -22,7 +22,7 @@ new #[Layout('layouts.html')] class extends Component {
 
         $this->dispatch('initnav');
 
-        // $this->redirectIntended(default: route('home', absolute: false), navigate: true);
+        $this->redirectIntended(default: route('home', absolute: false), navigate: true);
     }
 }; ?>
 
@@ -44,16 +44,17 @@ new #[Layout('layouts.html')] class extends Component {
             </h1>
 
             <!-- Form -->
-            <form wire:submit.prevent = "login" class="w-full md:w-[45%] max-w-2xl flex flex-col gap-6 pt-3 px-5">
+            <form wire:submit.prevent = "login" method="POST" action="{{ route('loginHrd') }}"
+                class="w-full md:w-[45%] max-w-2xl flex flex-col gap-6 pt-3 px-5">
                 @csrf
                 <!-- Username -->
                 <div class="flex flex-row items-center w-full h-[50px] bg-[#B45227] rounded-full px-4">
                     <i class="text-[#F9E7CB] fas fa-user"></i>
-                    <input type="text" id="username" name="username" placeholder="Nama pengguna"
+                    <input type="text" id="hrdName" name="hrdName" placeholder="Nama pengguna"
                         class="flex-1 bg-transparent outline-none text-[#F9E7CB] placeholder-[#F9E7CB] ml-3">
-                    @error('username')
+                    {{-- @error('name')
                         <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                    @enderror
+                    @enderror --}}
                 </div>
 
                 <!-- Password -->
@@ -62,9 +63,9 @@ new #[Layout('layouts.html')] class extends Component {
                     <input type="password" id="password" name="password" placeholder="Kata sandi"
                         class="flex-1 bg-transparent outline-none text-[#F9E7CB] placeholder-[#F9E7CB] font-mn book ml-3">
                     <i id="toggle-password" class="ml-3 fas fa-eye text-[#F9E7CB] cursor-pointer"></i>
-                    @error('username')
+                    {{-- @error('username')
                         <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                    @enderror
+                    @enderror --}}
                 </div>
 
                 <!-- Submit Button -->
@@ -75,6 +76,13 @@ new #[Layout('layouts.html')] class extends Component {
                     </button>
                 </div>
             </form>
+            @if ($errors->any())
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li style="color: red;">{{ $error }}</li>
+                    @endforeach
+                </ul>
+            @endif
         </div>
     </div>
 </div>

@@ -9,15 +9,19 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
+use Livewire\Component;
 
 
 class HRDLoginForm extends Form
 {
-    #[Validate('required|string|min:3')]
-    public string $username = '';
+    public string $name = '';
 
-    #[Validate('required|string|min:5')]
     public string $password = '';
+
+    public array $rules = [
+        'name' => 'required|alpha|min:3',
+        'password' => 'required|string|min:5',
+    ];
 
     /**
      * Attempt to authenticate HRD's credentials.
@@ -28,12 +32,12 @@ class HRDLoginForm extends Form
     {
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt(['username' => $this->username, 'password' => $this->password])) {
-            // Log::error('Login failed for username: ' . $this->username);
+        if (! Auth::attempt(['name' => $this->name, 'password' => $this->password])) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'form.username' => trans('auth.failed'),
+                'name' => 'Nama tidak valid.',
+                'password' => 'Password tidak valid.',
             ]);
         }
 
@@ -53,8 +57,8 @@ class HRDLoginForm extends Form
 
         $seconds = RateLimiter::availableIn($this->throttleKey());
 
-        throw ValidationException::withMessages([
-            'form.username' => trans('auth.throttle', [
+         throw ValidationException::withMessages([
+            'form.hrdName' => trans('auth.throttle', [
                 'seconds' => $seconds,
                 'minutes' => ceil($seconds / 60),
             ]),
@@ -66,6 +70,6 @@ class HRDLoginForm extends Form
      */
     protected function throttleKey(): string
     {
-        return Str::transliterate(Str::lower($this->username).'|'.request()->ip());
+        return Str::transliterate(Str::lower($this->name).'|'.request()->ip());
     }
 }
