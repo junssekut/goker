@@ -35,3 +35,7 @@ Route::middleware('auth')->group(function () {
 
     Volt::route('profile', UserProfileForm::class)->name('profile');
 });
+
+Route::middleware(['auth', 'role:user'])->group(function () {
+    Route::view('/', 'home')->name('home');
+});
