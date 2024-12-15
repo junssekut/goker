@@ -7,6 +7,8 @@ Route::view('/', 'home')->name('home');
 Route::view('/register', 'register')->name('register');
 Route::view('/login', 'login')->name('login');
 Route::view('/dev', 'datadiri')->name('dev');
+Route::view('/carrer', 'carrer')->name('carrer');
+
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
