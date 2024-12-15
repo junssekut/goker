@@ -103,3 +103,7 @@
     right: 0;
     bottom: 0;
 }
+
+#dropdownMenu::-webkit-scrollbar {
+    display: none; /* Menghilangkan scrollbar */
+}
