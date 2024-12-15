@@ -60,6 +60,8 @@
     initNav()
 
     function initNav() {
+        const gCerah = "{{ asset('assets/images/goker-cerah.png') }}";
+        const gGelap = "{{ asset('assets/images/goker-gelap.png') }}";
         const isLoggedIn = @json(Auth::check());
         let uIcon;
         if (isLoggedIn) {
@@ -79,7 +81,7 @@
                 nav.classList.add("bg-white", "pt-0", "shadow-md");
                 nav.classList.remove("bg-transparent", "pt-7", "shadow-none");
                 if (navList[0].classList.contains('nl-white')) {
-                    img.src = "assets/images/goker-cerah.png";
+                    img.src = gCerah
                     navList.forEach(e => {
                         e.classList.remove('text-white')
                         e.classList.add('text-black')
@@ -97,7 +99,7 @@
                 nav.classList.add("bg-transparent", "pt-7", "shadow-none");
                 nav.classList.remove("bg-white", "pt-0", "shadow-md");
                 if (navList[0].classList.contains('nl-white') || navList[0].classList.contains('nl-black')) {
-                    img.src = "assets/images/goker-gelap.png";
+                    img.src = gGelap
                     navList.forEach(e => {
                         e.classList.add('text-white')
                         e.classList.remove('text-black')
@@ -119,7 +121,7 @@
             nav.classList.remove("bg-white", "pt-0", "shadow-md");
             nav.classList.add("bg-transparent", "pt-7", "shadow-none");
             if (navList[0].classList.contains('nl-white')) {
-                img.src = "assets/images/goker-gelap.png";
+                img.src = gGelap
                 navList.forEach(e => {
                     e.classList.add('text-white')
                     e.classList.remove('text-black')
@@ -135,7 +137,7 @@
             nav.classList.add("bg-white", "pt-0", "shadow-md");
             nav.classList.remove("bg-transparent", "pt-7", "shadow-none");
             if (navList[0].classList.contains('nl-white')) {
-                img.src = "assets/images/goker-cerah.png";
+                img.src = gCerah
                 navList.forEach(e => {
                     e.classList.remove('text-white')
                     e.classList.add('text-black')
@@ -161,7 +163,7 @@
 
                     if (navList[0].classList.contains('nl-white') || navList[0].classList.contains(
                             'nl-black')) {
-                        img.src = "assets/images/goker-gelap.png";
+                        img.src = gGelap
                         navList.forEach(e => {
                             e.classList.add('text-white')
                             e.classList.remove('text-black')
@@ -177,7 +179,7 @@
                 } else {
                     if (navList[0].classList.contains('nl-white') || navList[0].classList.contains(
                             'nl-black')) {
-                        img.src = "assets/images/goker-cerah.png";
+                        img.src = gCerah
                         navList.forEach(e => {
                             e.classList.remove('text-white')
                             e.classList.add('text-black')
@@ -193,7 +195,7 @@
                 nav.classList.add("bg-white", "pt-0", "shadow-md");
                 nav.classList.remove("bg-transparent", "pt-7", "shadow-none");
                 if (navList[0].classList.contains('nl-white')) {
-                    img.src = "assets/images/goker-cerah.png";
+                    img.src = gCerah
                     navList.forEach(e => {
                         e.classList.remove('text-white')
                         e.classList.add('text-black')

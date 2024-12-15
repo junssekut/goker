@@ -40,7 +40,6 @@
             </div>
 
             <div class="relative flex flex-col items-center md:flex-row sm:justify-evenly text-white">
-
                 <x-home-card asset="assets/images/icon-helm.svg"
                     title="Gabung jadi bagian dari gojek, bangun kariermu sekarang!" color="#496D1C"
                     description="Bergabunglah dengan Gojek dan mulailah perjalanan karier Anda di perusahaan teknologi terkemuka, penuh peluang dan tantangan." />
@@ -68,12 +67,12 @@ Jadilah bagian dari Gojek dan wujudkan potensi terbaik Anda. Bersama kami, bangu
                 <!-- Content (above the background) -->
                 <div class="flex flex-col sm:items-end items-center w-full font-britHeavy h-full">
                     <div
-                        class="w-[418px] space-y-4 mx-10 md:mx-44 bg-transprent p-6 rounded-2xl bg-white/70 backdrop-blur-lg relative shadow-[4px_4px_8px_rgba(0,0,0,0.3)] mirror-effect">
+                        class="w-[418px] md:w-[500px] space-y-4 mx-10 md:mx-44 bg-transprent p-6 rounded-2xl bg-white/70 md:bg-none backdrop-blur-lg md:backdrop-filter-none relative shadow-[4px_4px_8px_rgba(0,0,0,0.3)] md:shadow-none mirror-effect">
                         <h1 class="text-5xl">
                             <span>Cari pekerjaan yang kamu inginkan</span>
                             <span class="text-ijoGojek"> secepat itu!</span>
                         </h1>
-                        <ul class="space-y-3 list-disc pl-5">
+                        <ul class="space-y-3 list-disc pl-5 md:text-lg">
                             <li>Akses lowongan pekerjaan yang tersedia dengan <span class="text-ijoGojek">satu
                                     klik</span></li>
                             <li>Respon application pendaftaran yang <span class="text-ijoGojek">cepat</span></li>

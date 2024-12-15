@@ -1,17 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Livewire\Volt\Volt;
+use App\Livewire\CareerDetailPage;
+
+Route::get('/career-detail/{id}', CareerDetailPage::class)->name('career-detail');
 
 Route::view('/', 'home')->name('home');
-Route::view('/register', 'register')->name('register');
-Route::view('/login', 'login')->name('login');
-Route::view('/dev', 'datadiri')->name('dev');
 Route::view('/carrer', 'carrer')->name('carrer');
-
+Route::view('/dev', 'login')->name('dev');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
 require __DIR__.'/auth.php';
+

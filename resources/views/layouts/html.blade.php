@@ -16,9 +16,7 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <link rel="stylesheet" href="/css/style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script defer>
@@ -49,8 +47,8 @@
 
     <script
         src="
-                                                                                                                                                                                        https://cdn.jsdelivr.net/npm/hint.css@3.0.0/Gruntfile.min.js
-                                                                                                                                                                                        ">
+                                                                                                                                                                                                            https://cdn.jsdelivr.net/npm/hint.css@3.0.0/Gruntfile.min.js
+                                                                                                                                                                                                            ">
     </script>
     <link href="
         https://cdn.jsdelivr.net/npm/hint.css@3.0.0/hint.min.css
@@ -89,6 +87,8 @@
     </style>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js" defer></script>
+
 </head>
 
 {{ $slot }}

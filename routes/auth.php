@@ -11,6 +11,9 @@ Route::middleware('guest')->group(function () {
 
     Volt::route('login', 'pages.auth.login')
         ->name('login');
+    
+    Volt::route('loginHrd', 'login-hrd')
+        ->name('loginHrd');
 
     Volt::route('forgot-password', 'pages.auth.forgot-password')
         ->name('password.request');
@@ -31,4 +34,8 @@ Route::middleware('auth')->group(function () {
         ->name('password.confirm');
 
     Volt::route('profile', UserProfileForm::class)->name('profile');
+});
+
+Route::middleware(['auth', 'role:user'])->group(function () {
+    Route::view('/', 'home')->name('home');
 });

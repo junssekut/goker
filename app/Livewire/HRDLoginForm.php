@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Forms;
+namespace App\Livewire;
 
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Support\Facades\Auth;
@@ -9,20 +9,22 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
+use Livewire\Component;
 
-class LoginForm extends Form
+
+class HRDLoginForm extends Form
 {
-    #[Validate('required|string|email')]
-    public string $email = '';
+    public string $name = '';
 
-    #[Validate('required|string')]
     public string $password = '';
 
-    #[Validate('required|string|in:user,hrd,admin')]
-    public bool $role = false;
+    public array $rules = [
+        'name' => 'required|string|min:3',
+        'password' => 'required|string|min:5',
+    ];
 
     /**
-     * Attempt to authenticate the request's credentials.
+     * Attempt to authenticate HRD's credentials.
      *
      * @throws \Illuminate\Validation\ValidationException
      */
@@ -30,15 +32,27 @@ class LoginForm extends Form
     {
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt($this->only(['email', 'password']), $this->remember)) {
+        if (! Auth::attempt(['name' => $this->name, 'password' => $this->password])) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'form.email' => trans('auth.failed'),
+                $this->messages()
             ]);
         }
 
         RateLimiter::clear($this->throttleKey());
+    }
+
+    public function messages() {
+        return [
+            'name.required' => 'Nama wajib diisi.',
+            'name.alpha' => 'Nama hanya boleh berisi huruf.',
+            'name.min' => 'Nama harus memiliki minimal :min karakter.',
+            'password.required' => 'Password wajib diisi.',
+            'password.string' => 'Password harus berupa string.',
+            'password.min' => 'Password harus memiliki minimal :min karakter.',
+        ];
+
     }
 
     /**
@@ -54,8 +68,8 @@ class LoginForm extends Form
 
         $seconds = RateLimiter::availableIn($this->throttleKey());
 
-        throw ValidationException::withMessages([
-            'form.email' => trans('auth.throttle', [
+         throw ValidationException::withMessages([
+            'form.hrdName' => trans('auth.throttle', [
                 'seconds' => $seconds,
                 'minutes' => ceil($seconds / 60),
             ]),
@@ -67,6 +81,6 @@ class LoginForm extends Form
      */
     protected function throttleKey(): string
     {
-        return Str::transliterate(Str::lower($this->email).'|'.request()->ip());
+        return Str::transliterate(Str::lower($this->name).'|'.request()->ip());
     }
 }
