@@ -3,35 +3,31 @@
     <div class="w-full flex flex-col">
         <div class="absolute inset-0 bg-gradient-to-b from-[#F7CE55] via-[#F7CE55] to-[#FF8F1C] -z-10 h-[120vh]">
         </div>
-        <div class="flex flex-row justify-start px-44 h-auto pt-[200px] w-full items-center z-10">
+        <div class="flex flex-col lg:flex-row justify-start lg:px-44 px-6 h-auto pt-[200px] w-full items-center z-10">
             <div>
-                <img class="w-[90%]" src="{{ asset('assets/images/careers-banner.png') }}" alt="" srcset="">
+                <img class="w-auto max-w-full" src="{{ asset('assets/images/careers-banner.png') }}" alt=""
+                    srcset="">
             </div>
-            <div class="flex flex-col gap-y-2">
-                <h1 class="font-britHeavy text-4xl">
+            <div class="flex flex-col gap-y-2 mt-6 lg:mt-0">
+                <h1 class="font-britHeavy text-2xl lg:text-4xl">
                     Kerja penuh tantangan, <br>
                     tinggal penuh kenangan.
                 </h1>
-                <h2 class="font-mn book text-xl">
+                <h2 class="font-mn book text-lg lg:text-xl">
                     A chance to build dreams, together.
                 </h2>
             </div>
         </div>
-        <div class="w-full flex flex-row justify-center px-44 gap-5 mt-10">
-            <div class="bg-white rounded-full p-4 w-[75%] flex flex-row justify-start items-center gap-3">
+        <div class="w-full flex flex-col lg:flex-row justify-center lg:px-44 px-6 gap-5 mt-10">
+            <div class="bg-white rounded-full p-4 w-full lg:w-[75%] flex flex-row justify-start items-center gap-3">
                 <i class="fas fa-search text-gray-400"></i>
                 <input type="text" placeholder="Cari pekerjaanmu (cth. Insinyur, Desainer)"
                     class="focus:outline-none text-gray-600 placeholder-gray-400 w-full pr-3" />
             </div>
-
-            {{--  wire:model="search"
-                    wire:keydown="filterCareers" --}}
-
             <!-- Dropdown Container -->
-            <div class="relative">
-                <!-- Dropdown Input -->
+            <div class="relative w-full lg:w-auto">
                 <div class="flex flex-row gap-3 items-center bg-white rounded-full p-4">
-                    <i class="fas fa-location-dot text-gray-700 "></i>
+                    <i class="fas fa-location-dot text-gray-700"></i>
                     <input id="dropdownInput" type="text" placeholder="Location"
                         class="flex-1 w-full outline-none text-gray-700 placeholder-gray-400" autocomplete="off">
                     <button id="dropdownButton">
@@ -41,7 +37,6 @@
                         </svg>
                     </button>
                 </div>
-
                 <!-- Dropdown Menu -->
                 <div id="dropdownMenu"
                     class="absolute w-full bg-white rounded-xl rounded-bl-xl shadow-xl mt-2 hidden z-10"
@@ -54,9 +49,6 @@
                                 {{ $c }}
                             </label>
                         @endforeach
-                        {{-- wire:model="locations" wire:change="filterCareers" --}}
-
-
                         <div id="notFound" class="hidden text-center text-sm text-gray-500">
                             Yahh kota tidak ditemukan..
                         </div>
@@ -64,47 +56,41 @@
                 </div>
             </div>
         </div>
-        <!-- Filter Section -->
-        <div wire:ignore class="flex flex-wrap mt-3 px-44 gap-2 z-0">
+        <div wire:ignore class="flex flex-wrap mt-3 lg:px-44 px-6 gap-2 z-0">
             <h1 id="filterTitle" class="hidden">Filters:</h1>
-            <div id="selectedFilters" class="flex flex-wrap gap-2 z-0">
-                <!-- Filter tags will appear here -->
-            </div>
+            <div id="selectedFilters" class="flex flex-wrap gap-2 z-0"></div>
             <button id="clearAll" class="text-sm text-black hover:text-red-700 hidden z-0 italic hover:underline"
                 onclick="callAllFilter();">
                 Clear All
             </button>
         </div>
-        <div class="w-full flex flex-row justify-center px-44 gap-5 mb-10 mt-10 z-10">
-            <div class="bg-white h-auto w-full p-10 rounded-3xl shadow-lg">
-                <div class="flex flex-row items-end gap-2 mb-8">
-                    <h1 class="font-britBlack text-4xl">Lowongan Pekerjaan</h1>
-                    <h2 id="jobCount" class="font-britBlack text-lg text-[#00AA13]"></h2>
+        <div class="w-full flex justify-center lg:px-44 px-6 mb-10 mt-10 z-10">
+            <div class="bg-white h-auto w-full p-6 xl:p-10 rounded-3xl shadow-lg">
+                <div class="flex flex-col md:flex-row items-start md:items-end gap-2 mb-8">
+                    <h1 class="font-britBlack text-2xl lg:text-4xl">Lowongan Pekerjaan</h1>
+                    <h2 id="jobCount" class="font-britBlack text-lg text-[#00AA13]">{{ $count }} pekerjaan
+                        tersedia untuk kamu!</h2>
                 </div>
-                <!-- Container utama untuk card -->
-                <div id="cardContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 ">
-                    <!-- Contoh kartu -->
-
+                <!-- Grid Cards -->
+                <div id="cardContainer" class="grid grid-cols-1 sm:grid-cols-3  xl:grid-cols-4 gap-6">
                     @forelse ($careers as $career)
                         <x-card-carrer class="card" asset="{{ asset('assets/images/icon-helm.svg') }}"
                             title="{{ $career->name }}" location="{{ $career->location }}"
                             :careerId="$career->id"></x-card-carrer>
                     @empty
-                        <p>gaada pekerjaan nih</p>
+                        <p class="font-britBlack">Maaf ya.. Nampaknya belum ada pekerjaan nih..</p>
                     @endforelse
-
-
-                    <!-- Duplikasikan kartu ini sebanyak yang Anda perlukan -->
                 </div>
                 <div id="loadMoreContainer" class="flex flex-row justify-center items-end gap-2 mt-8 mb-2">
                     <button id="loadMore" class="font-britBlack text-xl text-[#00AA13]">
-                        Lihat lagi ➜
+                        Lihat lagi ➞
                     </button>
                 </div>
             </div>
         </div>
     </div>
     <x-footer></x-footer>
+
     <style>
         #dropdownMenu {
             scrollbar-width: none;

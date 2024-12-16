@@ -12,15 +12,17 @@ class CareerPage extends Component
 {
     public $name =[];
     // public $locations = [];
-    public $careers = [];
+    public $careers;
     public $selectedFilters = [];
     public $distinctLocations = [];
+    public $count = 0;
 
     protected $listeners = ['filterCareers' => 'filterCareers'];
     public function mount()
     {
         // Fetch all careers initially
         $this->careers = Career::all();
+        $this->count = $this->careers->count();
         $this->distinctLocations = Career::select('location')->distinct()->pluck('location')->toArray();
         $this->name = Career::select('name')->distinct()->pluck('name')->toArray();
     }
@@ -30,6 +32,7 @@ class CareerPage extends Component
     {
         if(in_array('All', $filterValue)) {
             $this->careers = Career::all();
+            $this->count = $this->careers->count();
         } else {
             $query = Career::query();
             foreach ($filterValue as $filter) {
@@ -42,10 +45,13 @@ class CareerPage extends Component
                 
             }
             $this->careers = $query->get();
+            $this->count = $this->careers->count();
            
         }
         
     }
+
+   
 
     
     public function render()
