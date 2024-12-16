@@ -46,7 +46,7 @@ class HRDLoginForm extends Form
             Auth::logout();
 
             throw ValidationException::withMessages([
-                'form.name' => __('no fucking permission nigger'), // Or a custom message
+                'form.name' => __('Bukan HRD :)'), // Or a custom message
             ]);
         }
 
@@ -61,6 +61,7 @@ class HRDLoginForm extends Form
             'password.required' => 'Password wajib diisi.',
             'password.string' => 'Password harus berupa string.',
             'password.min' => 'Password harus memiliki minimal :min karakter.',
+            
         ];
 
     }
