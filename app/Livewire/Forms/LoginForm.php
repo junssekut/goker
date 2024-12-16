@@ -18,8 +18,8 @@ class LoginForm extends Form
     #[Validate('required|string')]
     public string $password = '';
 
-    #[Validate('required|string|in:user,hrd,admin')]
-    public bool $role = false;
+    #[Validate('required|string|in:user')]
+    public string $role;
 
     /**
      * Attempt to authenticate the request's credentials.
@@ -30,7 +30,7 @@ class LoginForm extends Form
     {
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt($this->only(['email', 'password']), $this->remember)) {
+        if (! Auth::attempt($this->only(['email', 'password', 'role']))) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
