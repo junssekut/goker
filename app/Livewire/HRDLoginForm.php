@@ -20,7 +20,7 @@ class HRDLoginForm extends Form
 
     public array $rules = [
         'name' => 'required|string|min:3',
-        'password' => 'required|string|min:5',
+        'password' => 'required|string|min:3',
     ];
 
     /**

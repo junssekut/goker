@@ -173,11 +173,9 @@
         }
     </style>
 
-    <script src="/livewire/livewire.js?id=02b08710" data-csrf="wpfRdL15SLTOElubyNja8iCUhEnDhzwxajXyW7eS"
-        data-update-uri="/livewire/update" data-navigate-once="true"></script>
 
     <script>
-        console.log(Livewire);
+        // console.log(Livewire);
         // Inisialisasi elemen kartu dan parameter
         const cardContainer = document.getElementById('cardContainer');
         const cards = Array.from(cardContainer.children); // Ambil semua kartu sebagai array
@@ -319,9 +317,10 @@
             // console.log(JSON.stringify(filterArray))
             // console.log(filterArray.length)
             if (filterArray.length == 0) {
-                Livewire.dispatch('filterCareers', ['All'])
+                filterArray.push('All')
+                Livewire.dispatch('filterCareers', [filterArray])
             } else {
-                Livewire.dispatch('filterCareers', filterArray)
+                Livewire.dispatch('filterCareers', [filterArray])
             }
         }
 

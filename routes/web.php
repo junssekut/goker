@@ -8,7 +8,6 @@ Route::get('/career-detail/{careerId}', CareerDetailPage::class)->name('career-d
 Route::get('/career', CareerPage::class)->name('career');
 
 Route::view('/', 'home')->name('home');
-Route::view('/carrer', 'carrer')->name('carrer');
 Route::view('/dev', 'login')->name('dev');
 
 Route::view('dashboard', 'dashboard')

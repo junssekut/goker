@@ -24,3 +24,5 @@ class Form extends Component
             'livewire.form'
         );
     }
+
+}

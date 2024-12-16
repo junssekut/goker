@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\VerifyEmailController;
-use App\Livewire;
+use App\Livewire\UserProfileForm;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
@@ -36,6 +36,6 @@ Route::middleware('auth')->group(function () {
     Volt::route('profile', UserProfileForm::class)->name('profile');
 });
 
-Route::middleware(['auth', 'role:user'])->group(function () {
-    Route::view('/', 'home')->name('home');
-});
+// Route::middleware(['auth', 'role:user'])->group(function () {
+//     Route::view('/', 'home')->name('home');
+// });

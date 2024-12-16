@@ -26,38 +26,24 @@ class CareerPage extends Component
     }
     
 
-    public function filterCareers($filterValue)
+    public function filterCareers(array $filterValue)
     {
-        if($filterValue === 'All') {
+        if(in_array('All', $filterValue)) {
             $this->careers = Career::all();
         } else {
-            if (!in_array($filterValue, $this->selectedFilters)) {
-                $this->selectedFilters[] = $filterValue;
-                
-             }
             $query = Career::query();
-
-            // dd($this->selectedFilters);
-            foreach ($this->selectedFilters as $filter) {
-                    // Check if it's a location filter (assuming location filters are strings)
+            foreach ($filterValue as $filter) {
                     if (in_array($filter, $this->distinctLocations)) {
                         $query->where('location', 'like', '%'. $filter . '%');
                     } else {
-                        // If it's not a location, it's assumed to be a name filter
-                        // foreach($filter as $f) {
                             $query->where('name', 'like', '%' . $filter . '%');
-                        // }
                         
                     }
                 
             }
-
-            // Execute the query to get the filtered careers
             $this->careers = $query->get();
-            // dd($this->careers);
+           
         }
-        // dd('Hello');
-        // Add the new filter value if it doesn't already exist
         
     }
 
