@@ -26,7 +26,7 @@
                     class="{{ Route::is('home') ? 'nav-list nl-white font-britHeavy text-lg text-white' : 'nav-list nl-black font-britHeavy text-lg' }}">Beranda</a>
             </div>
             <div class="w-full flex justify-center">
-                <a href="#"
+                <a href="{{ route('career') }}"
                     class="{{ Route::is('home') ? 'nav-list nl-white font-britHeavy text-lg text-white' : 'nav-list nl-black font-britHeavy text-lg' }}">Karir</a>
             </div>
             <div class="w-full flex justify-center">
