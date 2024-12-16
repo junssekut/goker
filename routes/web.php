@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Livewire\CareerPage;
 use App\Livewire\CareerDetailPage;
 
-Route::get('/career-detail/{id}', CareerDetailPage::class)->name('career-detail');
+Route::get('/career-detail/{careerId}', CareerDetailPage::class)->name('career-detail');
+Route::get('/career', CareerPage::class)->name('career');
 
 Route::view('/', 'home')->name('home');
 Route::view('/carrer', 'carrer')->name('carrer');

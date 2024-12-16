@@ -115,8 +115,7 @@
                     <div id="cardContainer"
                         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 ">
                         <!-- Contoh kartu -->
-                        <x-card-carrer class="card" asset="assets/images/icon-helm.svg" title="Technique"
-                            location="Jakarta"></x-card-carrer>
+                       
                         <x-card-carrer class="card" asset="assets/images/icon-helm.svg" title="Technique"
                             location="Jakarta"></x-card-carrer>
                         <x-card-carrer class="card" asset="assets/images/icon-helm.svg" title="Technique"
