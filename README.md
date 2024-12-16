@@ -12,7 +12,9 @@ Goker is an website application, TBA, On Development, docs will be updated.
 - [Table of Contents](#table-of-contents)
 - [Installation](#installation)
   - [Cloning The Repo](#cloning-the-repo)
-    - [Windows](#windows)
+    - [Windows x64](#windows-x64)
+    - [Linux](#linux)
+    - [macOS](#macos)
   - [Requirements](#requirements)
   - [Setting Up Environment](#setting-up-environment)
   - [Installing Vite](#installing-vite)
@@ -31,9 +33,29 @@ Goker is an website application, TBA, On Development, docs will be updated.
 
 ### Cloning The Repo
 
-#### Windows
+#### Windows x64
 
 ```bash
+git clone https://github.com/junssekut/goker.git
+```
+
+#### Linux
+
+```bash
+# Clone the repository
+sudo apt update
+sudo apt install -y git
+
+git clone https://github.com/junssekut/goker.git
+```
+
+#### macOS
+
+```bash
+# Clone the repository
+brew update
+brew install git
+
 git clone https://github.com/junssekut/goker.git
 ```
 
