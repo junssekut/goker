@@ -2,13 +2,50 @@
 
 Goker is an website application, TBA, On Development, docs will be updated.
 
-<div style="text-align: center; background-color: white; padding: 10px;">
-    <img src="public/assets/images/goker-cerah.png" alt="goker image" style="max-width: 100%; height: auto;">
-</div>
+<p align="center">
+    <img src="public/assets/images/goker-cerah.png" alt="goker image" width="738">
+</p>
+
+## Table of Contents
+
+- [Goker](#goker)
+- [Table of Contents](#table-of-contents)
+- [Installation](#installation)
+  - [Cloning The Repo](#cloning-the-repo)
+    - [Windows](#windows)
+  - [Requirements](#requirements)
+  - [Setting Up Environment](#setting-up-environment)
+  - [Installing Vite](#installing-vite)
+- [Usage](#usage)
+  - [Running Laravel](#running-laravel)
+  - [Running Vite](#running-vite)
+  - [Web Application](#web-application)
+- [Database Configuration](#database-configuration)
+  - [.env file](#env-file)
+  - [Migrate Database \&\& Seed](#migrate-database--seed)
+- [About Goker](#about-goker)
+- [Libraries](#libraries)
+    - [Data Migrations](#data-migrations)
 
 ## Installation
 
-### Setup composer & .env files
+### Cloning The Repo
+
+#### Windows
+
+```bash
+git clone https://github.com/junssekut/goker.git
+```
+
+### Requirements
+
+You need to install these requirements first before using this web application
+
+- [**PHP**](https://getcomposer.com) (v8.2 or latest)
+- [**Laravel**](https://laravel.com) (v11.3 or latest)
+- [**node.js**](https://nodejs.org/en) (v20.17.0 or latest)
+
+### Setting Up Environment
 
 ```bash
 composer install
@@ -18,7 +55,7 @@ php artisan migrate
 php artisan serve # run laravel application
 ```
 
-### Setup Vite
+### Installing Vite
 
 Add another command prompt at terminal and run
 
@@ -26,9 +63,9 @@ Add another command prompt at terminal and run
 npm install && npm run dev
 ```
 
-## Running The Application
+## Usage
 
-### Run the Laravel
+### Running Laravel
 
 On first terminal, run laravel by doing
 
@@ -36,7 +73,7 @@ On first terminal, run laravel by doing
 php artisan serve
 ```
 
-### Run the Vite
+### Running Vite
 
 On second terminal, run vite by doing
 
@@ -44,7 +81,7 @@ On second terminal, run vite by doing
 npm run dev
 ```
 
-### Go to URL
+### Web Application
 
 On your terminal there will be an IP Address that contains Goker Website Application
 
@@ -82,8 +119,12 @@ Built brick by brick using our simply hands and behold,
 - Irene Setievi
 - Arjuna Andio
 
-### Libraries Used
+## Libraries
 
-- Laravel 11
-- TBA
-- Will be updated later
+- [**Laravel 11**](https://laravel.com/)
+- [**Laravel Breeze**](https://github.com/laravel/breeze)
+
+#### Data Migrations
+
+- [**MySQL**](https://www.mysql.com/) *integrated with Laravel*
+- [**XAMPP Control Panel**](https://www.apachefriends.org/)
