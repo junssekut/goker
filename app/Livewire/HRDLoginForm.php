@@ -40,6 +40,16 @@ class HRDLoginForm extends Form
             ]);
         }
 
+        // Check if the authenticated user has the required role
+        $user = Auth::user();
+        if ($user->role !== 'hrd') {
+            Auth::logout();
+
+            throw ValidationException::withMessages([
+                'form.password' => __('Wah! Kamu gaboleh kesini nih!'), // Or a custom message
+            ]);
+        }
+
         RateLimiter::clear($this->throttleKey());
     }
 
@@ -51,6 +61,7 @@ class HRDLoginForm extends Form
             'password.required' => 'Password wajib diisi.',
             'password.string' => 'Password harus berupa string.',
             'password.min' => 'Password harus memiliki minimal :min karakter.',
+            
         ];
 
     }
