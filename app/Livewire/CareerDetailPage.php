@@ -80,9 +80,9 @@ class CareerDetailPage extends Component {
         session()->flash('message', '"CV-mu berhasil dikirim ya Gokers!"');
     }
 
-     public function mount($id)
+     public function mount($careerId)
     {
-        $this->career = Career::with('detail')->findOrFail($id);
+        $this->career = Career::with('detail')->findOrFail($careerId);
     }
 
     public function render()
