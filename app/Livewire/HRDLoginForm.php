@@ -40,6 +40,16 @@ class HRDLoginForm extends Form
             ]);
         }
 
+        // Check if the authenticated user has the required role
+        $user = Auth::user();
+        if ($user->role !== 'hrd') {
+            Auth::logout();
+
+            throw ValidationException::withMessages([
+                'form.name' => __('no fucking permission nigger'), // Or a custom message
+            ]);
+        }
+
         RateLimiter::clear($this->throttleKey());
     }
 
