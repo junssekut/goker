@@ -33,13 +33,13 @@ new #[Layout('layouts.html')] class extends Component {
         <!-- Container -->
         <div class="w-full h-full flex flex-col justify-center items-center pt-10">
             <!-- gmbr -->
-            <div class="flex items-start justify-center w-full h-[300px] -translate-y-7">
+            <div class="flex items-start justify-center object-cover w-full -translate-y-7">
                 <img src="{{ asset('assets/images/logo-hrd.png') }}" alt="Illustration"
-                    class="w-[450px] sd:w-[30%] md:w-[38%] h-auto">
+                    class="w-[450px] h-full sd:w-[30%] md:w-[38%]">
             </div>
 
             <!-- Welcome Text -->
-            <h1 class="text-center text-2xl font-bold text-black pt-2 pb-2 font-britBlack">
+            <h1 class="text-center text-2xl font-bold text-black sm pt-2 pb-2 font-britBlack">
                 Selamat Datang HRD Goker!
             </h1>
 
