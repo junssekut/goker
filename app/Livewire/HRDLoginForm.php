@@ -46,7 +46,7 @@ class HRDLoginForm extends Form
             Auth::logout();
 
             throw ValidationException::withMessages([
-                'form.name' => __('Bukan HRD :)'), // Or a custom message
+                'form.password' => __('Wah! Kamu gaboleh kesini nih!'), // Or a custom message
             ]);
         }
 

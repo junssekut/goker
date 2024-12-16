@@ -18,9 +18,6 @@ class LoginForm extends Form
     #[Validate('required|string')]
     public string $password = '';
 
-    #[Validate('required|string|in:user')]
-    public string $role;
-
     /**
      * Attempt to authenticate the request's credentials.
      *
@@ -30,11 +27,21 @@ class LoginForm extends Form
     {
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt($this->only(['email', 'password', 'role']))) {
+        if (! Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
                 'form.email' => trans('auth.failed'),
+            ]);
+        }
+
+        // Check if the authenticated user has the required role
+        $user = Auth::user();
+        if ($user->role !== 'user') {
+            Auth::logout();
+
+            throw ValidationException::withMessages([
+                'form.password' => __('Kamu nggak bisa login disini!'), // Or a custom message
             ]);
         }
 
