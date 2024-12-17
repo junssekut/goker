@@ -18,7 +18,6 @@ class CareerDetailPage extends Component {
     public $cvPreviewUrl;
     public $uploaded = false;
     public $finalPath;
-    public static $index = 1;
     public $career;
 
     public $format;
@@ -46,7 +45,6 @@ class CareerDetailPage extends Component {
         }
 
         $this->reset(['cv', 'cvPreviewUrl', 'uploaded']);
-         $this->index--;
     }
 
     public function submitCV()

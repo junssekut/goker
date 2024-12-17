@@ -16,6 +16,11 @@ class DetailCareer extends Model
         "DateEnd"
     ];
 
+    protected $casts = [
+        'DateEnd' => 'date',
+    ];
+
+
     protected $guarded = ["CareerId"];
 
     public function career()

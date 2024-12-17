@@ -23,15 +23,15 @@
         <ul class="md:flex md:items-center md:justify-between md:gap-14">
             <div class="w-full flex justify-center">
                 <a href="{{ route('home') }}"
-                    class="{{ Route::is('home') ? 'nav-list nl-white font-britHeavy text-lg text-white' : 'nav-list nl-black font-britHeavy text-lg' }}">Beranda</a>
+                    class="{{ Route::is('home') || Route::is('career-detail') ? 'nav-list nl-white font-britHeavy text-lg text-white' : 'nav-list nl-black font-britHeavy text-lg' }}">Beranda</a>
             </div>
             <div class="w-full flex justify-center">
                 <a href="{{ route('career') }}"
-                    class="{{ Route::is('home') ? 'nav-list nl-white font-britHeavy text-lg text-white' : 'nav-list nl-black font-britHeavy text-lg' }}">Karir</a>
+                    class="{{ Route::is('home') || Route::is('career-detail') ? 'nav-list nl-white font-britHeavy text-lg text-white' : 'nav-list nl-black font-britHeavy text-lg' }}">Karir</a>
             </div>
             <div class="w-full flex justify-center">
                 <a href="#"
-                    class="{{ Route::is('home') ? 'nav-list nl-white font-britHeavy text-lg text-white' : 'nav-list nl-black font-britHeavy text-lg' }}">Life@Gojek</a>
+                    class="{{ Route::is('home') || Route::is('career-detail') ? 'nav-list nl-white font-britHeavy text-lg text-white' : 'nav-list nl-black font-britHeavy text-lg' }}">Life@Gojek</a>
             </div>
 
         </ul>
@@ -99,17 +99,20 @@
                 nav.classList.add("bg-transparent", "pt-7", "shadow-none");
                 nav.classList.remove("bg-white", "pt-0", "shadow-md");
                 if (navList[0].classList.contains('nl-white') || navList[0].classList.contains('nl-black')) {
-                    img.src = gGelap
-                    navList.forEach(e => {
-                        e.classList.add('text-white')
-                        e.classList.remove('text-black')
-                        e.classList.remove('nl-black')
-                        e.classList.add('nl-white')
-                    })
-                    if (isLoggedIn) {
-                        uIcon.classList.remove('text-black')
-                        uIcon.classList.add('text-white')
+                    if (!(currentRoute === 'career')) {
+                        img.src = gGelap
+                        navList.forEach(e => {
+                            e.classList.add('text-white')
+                            e.classList.remove('text-black')
+                            e.classList.remove('nl-black')
+                            e.classList.add('nl-white')
+                        })
+                        if (isLoggedIn) {
+                            uIcon.classList.remove('text-black')
+                            uIcon.classList.add('text-white')
+                        }
                     }
+
 
                 }
 
@@ -159,7 +162,7 @@
                 window.addEventListener("scroll", handleScroll);
                 nav.classList.remove("bg-white", "pt-0", "shadow-md");
                 nav.classList.add("bg-transparent", "pt-7", "shadow-none");
-                if (!(currentRoute === 'login' || currentRoute === 'register' || currentRoute === 'profile')) {
+                if (!(currentRoute === 'login' || currentRoute === 'register' || currentRoute === 'career')) {
 
                     if (navList[0].classList.contains('nl-white') || navList[0].classList.contains(
                             'nl-black')) {
