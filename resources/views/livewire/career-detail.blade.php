@@ -2,14 +2,14 @@
     <x-nav-before></x-nav-before>
     <div class="w-full h-[580px] relative">
         <img class="w-full h-full" src="{{ asset('assets/images/detailBackground.png') }}" alt="">
-        <div class="absolute top-[45%] left-[12%] text-white">
+        <div class="absolute  top-[35%]  sm:top-[45%] w-[80%] left-[12%] text-white">
             <h1 class="title font-britHeavy text-5xl mb-3">{{ $career->name }}</h1>
             <h2 class="place font-britReg text-3xl">{{ $career->location }}</h2>
         </div>
     </div>
 
     <div
-        class="flex md:flex-row flex-col gap-5 w-full md:gap-11 md:justify-center md:pl-0 pl-7 justify-start mt-[95px] mb-[150px]">
+        class="flex md:flex-row flex-col gap-5 w-full md:gap-11 md:justify-center md:pl-0 px-7 justify-start mt-[95px] mb-[150px]">
 
         <div class="flex flex-col gap-5 md:w-[45%] w-[100%] px-4 mr-[50px]">
             <div class="Description mb-5">

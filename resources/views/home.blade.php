@@ -18,7 +18,8 @@
         </div>
 
         <div class="relative overflow-hidden">
-            <h1 class="font-britBlack text-4xl sm:text-6xl w-full text-center pt-14 sm:pt-24 sm:pb-10">Tumbuh Bersama
+            <h1 class="font-britBlack text-3xl md:text-4xl sm:text-6xl w-full text-center pt-14 sm:pt-24 sm:pb-10">Tumbuh
+                Bersama
                 Gojek
             </h1>
             <div class="absolute w-96 h-96 bg-green-500 bg-opacity-20 rounded-full bottom-[0vh] left-[40vw] z-[-2]">
@@ -67,8 +68,8 @@ Jadilah bagian dari Gojek dan wujudkan potensi terbaik Anda. Bersama kami, bangu
                 <!-- Content (above the background) -->
                 <div class="flex flex-col sm:items-end items-center w-full font-britHeavy h-full">
                     <div
-                        class="w-[418px] md:w-[500px] space-y-4 mx-10 md:mx-44 bg-transprent p-6 rounded-2xl bg-white/70 md:bg-none backdrop-blur-lg md:backdrop-filter-none relative shadow-[4px_4px_8px_rgba(0,0,0,0.3)] md:shadow-none mirror-effect">
-                        <h1 class="text-5xl">
+                        class="max-w-[418px] md:w-[500px] space-y-4 mx-3 md:mx-44 bg-transprent p-6 rounded-2xl bg-white/70 md:bg-none backdrop-blur-lg md:backdrop-filter-none relative shadow-[4px_4px_8px_rgba(0,0,0,0.3)] md:shadow-none mirror-effect">
+                        <h1 class="text-3xl md:text-5xl">
                             <span>Cari pekerjaan yang kamu inginkan</span>
                             <span class="text-ijoGojek"> secepat itu!</span>
                         </h1>
