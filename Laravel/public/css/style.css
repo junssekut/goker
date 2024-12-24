@@ -1,0 +1,109 @@
+.nav-list {
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px 0; /* Adds spacing for the underline */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+
+.nl-black::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px; /* Adjust the thickness of the underline */
+    background-color: black; /* Adjust to your desired line color */
+    transition: width 0.3s ease; /* Smooth transition for animation */
+}
+
+
+.nl-black:hover::after {
+    width: 100%; 
+}
+
+.nl-white::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px; /* Adjust the thickness of the underline */
+    background-color: white; /* Adjust to your desired line color */
+    transition: width 0.3s ease; /* Smooth transition for animation */
+}
+
+
+.nl-white:hover::after {
+    width: 100%; 
+}
+
+
+.user-list {
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+    color: #333;
+    padding: 5px 0; /* Adds spacing for the underline */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+
+.user-list::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px; /* Adjust the thickness of the underline */
+    background-color: black; /* Adjust to your desired line color */
+    transition: width 0.3s ease; /* Smooth transition for animation */
+}
+
+
+.user-list:hover::after {
+    width: 100%; 
+}
+
+/* Tailwind-compatible customization for Choices.js */
+.choices__inner {
+    @apply border rounded-md p-2 text-gray-700 shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none;
+}
+.choices__list--dropdown .choices__item--selectable {
+    @apply text-gray-800 hover:bg-gray-100;
+}
+.custom-checkbox {
+    appearance: none;
+    height: 1rem; /* 5 * 0.25rem */
+    width: 1rem;
+    border: 1px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+.custom-checkbox:checked {
+    background-color: white;
+    border-color: white;
+  }
+
+.custom-checkbox:checked::before {
+    content: '◉';
+    color: black; /* Change this to your desired color */
+    font-weight: bold;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#dropdownMenu::-webkit-scrollbar {
+    display: none; /* Menghilangkan scrollbar */
+}
