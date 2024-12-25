@@ -19,6 +19,7 @@ class CareerDetail extends Model
         'career_id',
         'cv',
         'score',
+        'review',
         'career_status',
         'date_uploaded', // Include these to allow mass assignment
         'date_updated',
