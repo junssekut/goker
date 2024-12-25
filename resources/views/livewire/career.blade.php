@@ -40,7 +40,7 @@
                 <!-- Dropdown Menu -->
                 <div id="dropdownMenu"
                     class="absolute w-full bg-white rounded-xl rounded-bl-xl shadow-xl mt-2 hidden z-10"
-                    style="max-height: 176px; overflow-y: auto;">
+                    style="max-height: 170px; overflow-y: auto;">
                     <div class="py-4 pl-4 flex gap-y-4 flex-col">
                         @foreach ($distinctLocations as $c)
                             <label class="block wrapper">
