@@ -9,7 +9,6 @@ use Livewire\Attributes\Layout;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Career;
-use App\Services\CVScoringService;
 
 #[Layout('layouts.html')]
 class CareerDetailPage extends Component {
@@ -48,10 +47,10 @@ class CareerDetailPage extends Component {
         $this->reset(['cv', 'cvPreviewUrl', 'uploaded']);
     }
 
-    public function submitCV(CVScoringService $cVScoringService)
+    public function submitCV()
     {
         // Pindahkan file ke direktori final
-        $this->finalPath = Storage::disk('public')->putFileAs(
+                $this->finalPath = Storage::disk('public')->putFileAs(
             'cv_uploads', 
             new \Illuminate\Http\File(storage_path('app/public/' . $this->cvPreviewUrl)), 
             $this->format // Menggunakan nama file yang sama seperti $format
@@ -61,21 +60,6 @@ class CareerDetailPage extends Component {
         // Hapus file sementara
         Storage::disk('public')->delete($this->cvPreviewUrl);
 
-        $requirement = $this->career->detail->Requirement;
-        $jobdesk = $this->career->detail->Jobdesk;
-
-        // Proses file melalui service
-        $resp = $cVScoringService->processCv(
-            storage_path('app/public/' . $this->finalPath),
-            $requirement,
-            $jobdesk
-        );
-
-        // dd($resp);
-
-        $score = $resp['score'];
-        $reason = $resp['reason'];
-        
         
         CareerDetail::updateOrCreate(
             [
@@ -84,8 +68,7 @@ class CareerDetailPage extends Component {
             ],
             [
                 'cv' => $this->finalPath,
-                'score' => $score,
-                'review' => $reason,
+                'score' => 0,
                 'date_updated' => now(), // Ensure that the date_updated field is set to the current timestamp
             ]
         );

@@ -57,43 +57,44 @@
 
         <div class="md:w-[20%] w-full flex flex-col gap-2 md:justify-start justify-center items-center">
             @auth
-                {{-- @if ($career->detail->DateEnd < now())
+                @if ($career->detail->DateEnd < now())
                     <a href="{{ route('career') }}"
                         class="p-2 bg-ijoGojek text-white text-center rounded-2xl font-britHeavy mb-3 hover:bg-kuningTuaGojek duration-200">Udah
                         telat nih Gokers. Cari yang aja lain yuk</a>
-                @else --}}
-                <form class="flex flex-col gap-1 justify-center md:justify-start w-[250px]" wire:submit.prevent="submitCV">
-                    <!-- Upload CV -->
-                    <div class="mb-3">
-                        <input type="file" wire:model="cv" class="w-full text-sm">
-                        @error('cv')
-                            <span class="error">{{ $message }}</span>
-                        @enderror
-                    </div>
-
-                    <!-- Preview CV -->
-                    @if ($cvPreviewUrl)
-                        <div class="preview-container"
-                            style="position: relative; width: 100%; max-width: 400px; margin-bottom: 20px;">
-
-                            <embed class="rounded-2xl shadow-md border-1"
-                                src="{{ asset('storage/' . $cvPreviewUrl) }}#toolbar=0" type="application/pdf"
-                                width="100%" height="300px"></embed>
-                            <button type="button"
-                                class="bg-ijoGojek rounded-full text-white px-[6px] font-britHeavy hover:bg-red-600 duration-200"
-                                wire:click="removeCv" style="position: absolute; top: 10px; right: 10px;">
-                                X
-                            </button>
+                @else
+                    <form class="flex flex-col gap-1 justify-center md:justify-start w-[250px]"
+                        wire:submit.prevent="submitCV">
+                        <!-- Upload CV -->
+                        <div class="mb-3">
+                            <input type="file" wire:model="cv" class="w-full text-sm">
+                            @error('cv')
+                                <span class="error">{{ $message }}</span>
+                            @enderror
                         </div>
-                    @endif
 
-                    <!-- Tombol Dinamis -->
-                    <button type="submit" class="bg-ijoGojek font-britHeavy text-white py-2 rounded-2xl"
-                        {{ !$uploaded ? 'disabled' : '' }}>
-                        Kumpulkan CV
-                    </button>
-                </form>
-                {{-- @endif --}}
+                        <!-- Preview CV -->
+                        @if ($cvPreviewUrl)
+                            <div class="preview-container"
+                                style="position: relative; width: 100%; max-width: 400px; margin-bottom: 20px;">
+
+                                <embed class="rounded-2xl shadow-md border-1"
+                                    src="{{ asset('storage/' . $cvPreviewUrl) }}#toolbar=0" type="application/pdf"
+                                    width="100%" height="300px"></embed>
+                                <button type="button"
+                                    class="bg-ijoGojek rounded-full text-white px-[6px] font-britHeavy hover:bg-red-600 duration-200"
+                                    wire:click="removeCv" style="position: absolute; top: 10px; right: 10px;">
+                                    X
+                                </button>
+                            </div>
+                        @endif
+
+                        <!-- Tombol Dinamis -->
+                        <button type="submit" class="bg-ijoGojek font-britHeavy text-white py-2 rounded-2xl"
+                            {{ !$uploaded ? 'disabled' : '' }}>
+                            Kumpulkan CV
+                        </button>
+                    </form>
+                @endif
             @else
                 <a href="{{ route('login') }}"
                     class="p-2 bg-ijoGojek text-white text-center rounded-2xl font-britHeavy mb-3 hover:bg-kuningTuaGojek duration-200">Login

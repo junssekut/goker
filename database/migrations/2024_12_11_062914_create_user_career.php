@@ -17,8 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('career_id');
             $table->string('cv');
-            $table->decimal('score');
-            $table->longText('review');
+            $table->integer('score')->default(0);
             $table->string('career_status')->default('Applied');
 
             // Custom timestamps

@@ -51,10 +51,14 @@ class CareerPage extends Component
         
     }
 
+   
+
+    
     public function render()
     {
         // $careers = Career::all();
         return view('livewire.career');
     }
+
     
 }
