@@ -14,5 +14,9 @@ Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
-require __DIR__.'/auth.php';
+use App\Http\Controllers\CareerController; // Import your controller
 
+Route::get('/careers/{record}/download-cv', [CareerController::class, 'downloadCv'])->name('career.downloadCv');
+    
+
+require __DIR__.'/auth.php';

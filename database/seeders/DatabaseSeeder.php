@@ -39,7 +39,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call(CareerSeeder::class);
         $this->call(DetailCareerSeeder::class);
-
-
+        $this->call(UserProfileSeeder::class);
     }
 }

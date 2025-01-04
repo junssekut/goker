@@ -19,6 +19,9 @@ class CareerDetail extends Model
         'career_id',
         'cv',
         'score',
+        'psychological_test_score',
+        'interview_score',
+        'mcu_score',
         'review',
         'career_status',
         'date_uploaded', // Include these to allow mass assignment
@@ -29,6 +32,19 @@ class CareerDetail extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    // Access user profile via user
+    public function profile()
+    {
+        return $this->hasOneThrough(
+            UserProfile::class,
+            User::class,
+            'id',        // Foreign key on the User table (primary key of User)
+            'user_id',   // Foreign key on the UserProfile table
+            'user_id',   // Local key on the CareerDetail table
+            'id'         // Local key on the User table
+        );
     }
 
     public function career()

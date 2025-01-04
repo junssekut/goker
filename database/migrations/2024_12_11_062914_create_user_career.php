@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('cv');
             $table->decimal('score');
             $table->longText('review');
-            $table->string('career_status')->default('Applied');
+            $table->enum('career_status', ['Applied', 'Psychological Test', 'Interview', 'MCU', 'Accepted'])->default('Applied');
 
             // Custom timestamps
             $table->timestamp('date_uploaded')->nullable()->default(DB::raw('CURRENT_TIMESTAMP'));

@@ -1,0 +1,104 @@
+@import '/vendor/filament/filament/resources/css/theme.css';
+@import '/resources/css/app.css';
+
+@config 'tailwind.config.js';
+
+.status-dropdown-widget .fi-fo-select {
+    @apply bg-[#F8EF8F]  rounded-xl;
+}
+
+.status-dropdown-widget .fi-fo-select:focus {
+    @apply outline-none;
+}
+
+.status-dropdown-widget .fi-select-input {
+    @apply text-[#717171]
+}
+
+.fi-sidebar-nav {
+    @apply bg-white;
+}
+
+.bg-inject {
+    background-size: cover;
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    height: 100vh; /* Full height */
+    position: fixed;
+    top: 0;
+    /* left: var(--sidebar-width, 16rem); */
+    /* width: calc(100vw - var(--sidebar-width, 16rem)); */
+    width: 100vw;
+    left: 0;
+    z-index: -1; /* Behind content */
+}
+
+.bg-beranda {
+    background-image: url('/public/assets/images/dashboard-hrd.png'); /* Correct path */
+    background-position: center;
+}
+
+.bg-lowongan {
+    background-image: url('/public/assets/images/lowongan-hrd.png'); /* Correct path */
+}
+
+/* lowongan detail */
+.bg-lowongan-detail {
+    background-image: url('/public/assets/images/lowongan-detail.png');
+}
+
+.bg-user-detail {
+    background-image: url('/public/assets/images/user-detail.png');
+}
+
+.bg-login {
+    background-image: url('/public/assets/images/latar-loginHrd.svg');
+    @apply bg-[#bce194];
+}
+
+.fi-sidebar-header {
+    @apply justify-center;
+}
+
+.fi-topbar {
+    /* @apply hidden; */
+    
+}
+
+/* .table-inject-lowongan-detail .fi-ta {
+    .fi-ta-header {
+        @apply hidden;
+    }
+
+    .fi-ta-search-field .fi-input-wrp {
+        @apply bg-opacity-50;
+    }
+
+    .fi-ta-header-cell, .fi-ta-actions-header-cell, .fi-ta-ctn, .fi-ta-filter-indicators {
+        @apply bg-[#97C0CB];
+    }
+} */
+
+.tab-inject-lowongan-detail {
+    
+    .fi-tabs {
+        /* @apply bg-[#97C0CB]; */
+    }
+}
+
+.fi-sidebar-nav {
+    /* @apply justify-center; */
+
+    .fi-sidebar-item-active a {
+        @apply bg-[#00660B];
+
+        svg, span {
+            @apply text-white font-bold;
+        }
+
+        .fi-badge span {
+            @apply text-[#00660B] font-normal;
+        }
+    }
+}
+

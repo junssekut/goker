@@ -1,0 +1,7 @@
+/* resources/css/filament/hrd/lowongan.css */
+.filament-page {
+    background-image: url('/images/lowongan-hrd.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

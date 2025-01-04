@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class DetailCareer extends Model
 {
+    public $timestamps = false; // Disable timestamps
     protected $table = 'detail_careers';
 
     protected $fillable = [
