@@ -10,8 +10,10 @@ class Career extends Model
     protected $table = 'career';
 
     protected $fillable = [
-         'name',
-          'location'
+        'name',
+        'location',
+        'briefDescription',
+        'category_id'
     ];
 
     protected $guarded = ["id"];
@@ -19,5 +21,10 @@ class Career extends Model
     public function detail()
     {
         return $this->hasOne(DetailCareer::class, 'CareerId');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(CareerCategory::class, 'category_id');
     }
 }

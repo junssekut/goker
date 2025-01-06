@@ -17,8 +17,9 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('career_id');
             $table->string('cv');
-            $table->integer('score')->default(0);
-            $table->string('career_status')->default('Applied');
+            $table->decimal('score');
+            $table->longText('review');
+            $table->enum('career_status', ['Applied', 'Psychological Test', 'Interview', 'MCU', 'Accepted'])->default('Applied');
 
             // Custom timestamps
             $table->timestamp('date_uploaded')->nullable()->default(DB::raw('CURRENT_TIMESTAMP'));
