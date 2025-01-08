@@ -133,8 +133,6 @@ class OverviewWidget extends Widget implements HasForms
                 ->hintIcon('heroicon-m-information-circle')
                 ->hintIconTooltip('Yang ini gabisa di ubah ya!')
                 ->numeric()
-                ->minValue(0)
-                ->maxValue(100)
                 ->readOnly()
                 ->visible(fn ($record) => $record->career_status === 'Applied'),
 
@@ -150,7 +148,11 @@ class OverviewWidget extends Widget implements HasForms
                 ->hintIcon('heroicon-m-information-circle')
                 ->hintIconTooltip('Masukkan skor pelamar disini ya!')
                 ->live()
-                ->afterStateUpdated(fn ($state) => $this->updateScore('psychological_test_score', $state)),
+                ->afterStateUpdated(function ($state, $set) {
+                    $validatedState = max(0, min(100, (int)$state));
+                    $set('psychological_test_score', $validatedState); // Adjust state directly if necessary
+                    $this->updateScore('psychological_test_score', $validatedState);
+                }),
 
             // Interview Score
             TextInput::make('interview_score')
@@ -163,7 +165,12 @@ class OverviewWidget extends Widget implements HasForms
                 ->visible(fn ($record) => $record->career_status === 'Interview')
                 ->hintIcon('heroicon-m-information-circle')
                 ->hintIconTooltip('Masukkan skor pelamar disini ya!')
-                ->afterStateUpdated(fn ($state) => $this->updateScore('interview_score', $state)),
+                ->live()
+                ->afterStateUpdated(function ($state, $set) {
+                    $validatedState = max(0, min(100, (int)$state));
+                    $set('interview_score', $validatedState); // Adjust state directly if necessary
+                    $this->updateScore('interview_score', $validatedState);
+                }),
 
             // MCU Score
             TextInput::make('mcu_score')
@@ -177,7 +184,12 @@ class OverviewWidget extends Widget implements HasForms
                 ->visible(fn ($record) => $record->career_status === 'MCU')
                 ->hintIcon('heroicon-m-information-circle')
                 ->hintIconTooltip('Masukkan skor pelamar disini ya!')
-                ->afterStateUpdated(fn ($state) => $this->updateScore('mcu_score', $state)),
+                ->live()
+                ->afterStateUpdated(function ($state, $set) {
+                    $validatedState = max(0, min(100, (int)$state));
+                    $set('mcu_score', $validatedState); // Adjust state directly if necessary
+                    $this->updateScore('mcu_score', $validatedState);
+                }),
         ])
         ->model($this->record)
         ->statePath('data')

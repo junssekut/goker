@@ -178,7 +178,7 @@ class CareerCardPage extends Page implements HasForms
                                 ->suffixIcon('heroicon-m-briefcase')
                                 ->suffixIconColor(fn (): string => $this->getErrorBag()->first('data.name') ? 'danger' : 'goker-gelap')
                                 ->placeholder('Pekerjaan nya namanya?')
-                                ->columnSpan(1)
+                                ->columnSpan(['default' => 2, 'sm' => 1])
                                 ->required()
                                 ->autocapitalize('words'),
                             Select::make('category')
@@ -192,6 +192,7 @@ class CareerCardPage extends Page implements HasForms
                                 ->noSearchResultsMessage('Yah, Ga ada kategorinya. Buat baru?')
                                 ->searchPrompt('Cari kategori yang udah ada...')
                                 ->placeholder('Kategori pekerjaan nya apa ya?')
+                                ->columnSpan(['default' => 2, 'sm' => 1])
                                 ->createOptionForm([
                                     TextInput::make('category_name') // Creating new category
                                         ->label('Nama Kategori')
@@ -206,7 +207,7 @@ class CareerCardPage extends Page implements HasForms
                                 ->suffixIcon('heroicon-m-map-pin')
                                 ->suffixIconColor(fn (): string => $this->getErrorBag()->first('data.location') ? 'danger' : 'goker-gelap')
                                 ->placeholder('Lokasi pekerjaan ini')
-                                ->columnSpan(1)
+                                ->columnSpan(['default' => 2, 'sm' => 1])
                                 ->required()
                                 ->autocapitalize('words'),
                             DatePicker::make('deadline')
@@ -214,7 +215,7 @@ class CareerCardPage extends Page implements HasForms
                                 ->label('Tenggat Lowongan')
                                 ->suffixIcon('heroicon-m-calendar-date-range')
                                 ->suffixIconColor(fn (): string => $this->getErrorBag()->first('data.deadline') ? 'danger' : 'goker-gelap')
-                                ->columnSpan(1)
+                                ->columnSpan(['default' => 2, 'sm' => 1])
                                 ->format('Y-m-d')
                                 ->timezone('Asia/Jakarta')
                                 ->required(),
@@ -239,7 +240,7 @@ class CareerCardPage extends Page implements HasForms
                                 ->inline()
                                 ->grouped()
                                 ->required()
-                                ->columnSpan(1),
+                                ->columnSpan(['default' => 2, 'sm' => 1]),
                             ToggleButtons::make('status')
                                 ->lazy()
                                 ->label('Waktu Pekerjaan')
@@ -254,7 +255,7 @@ class CareerCardPage extends Page implements HasForms
                                 ->inline()
                                 ->grouped()
                                 ->required()
-                                ->columnSpan(1),
+                                ->columnSpan(['default' => 2, 'sm' => 1]),
                         ]),
                     Wizard\Step::make('Detail')
                     ->description('Informasi detail')

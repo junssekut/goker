@@ -38,7 +38,13 @@ class CareerDetailTableWidget extends BaseWidget
                             ? asset('assets/images/orang2.svg') 
                             : asset('assets/images/orang1.svg');
                     }),
-                Tables\Columns\TextColumn::make('profile.name')->label('Nama')->searchable(),
+                Tables\Columns\TextColumn::make('profile.name')
+                    ->label('Nama')
+                    ->searchable(query: function ($query, $search) {
+                        $query->whereHas('profile', function ($query) use ($search) {
+                            $query->where('user_profiles.name', 'like', "%{$search}%");
+                        });
+                    }),
                 Tables\Columns\TextColumn::make('career.name')->label('Pekerjaan'),
                 Tables\Columns\BadgeColumn::make('career_status')
                     ->label('Status')
