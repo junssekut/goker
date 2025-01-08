@@ -20,7 +20,7 @@
                     tuh.</p>
             </div>
 
-            <img src="{{ asset('assets/images/logo-hrd.png') }}" alt="" srcset="" class="w-fit h-40">
+            <img src="{{ asset('assets/images/logo-hrd.png') }}" alt="" srcset="" class="w-fit h-24 md:h-40">
         </div>
 
     </div>

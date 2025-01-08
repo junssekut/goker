@@ -22,7 +22,7 @@
                 </button> --}}
             </div>
 
-            <img src="{{ asset('assets/images/lowongan.svg') }}" alt="" srcset="" class="w-fit h-40">
+            <img src="{{ asset('assets/images/lowongan.svg') }}" alt="" srcset="" class="w-fit h-24 md:h-40">
         </div>
 
     </div>
@@ -52,7 +52,7 @@
 
                     <x-slot name="trigger">
                         <button
-                            class="flex flex-row items-center gap-2 p-2 h-8 w-48 text-white bg-[#01AB14] hover:bg-[#2B9437] rounded-md transition-all ease-linear">
+                            class="flex flex-row items-center gap-2 p-2 h-fit w-fit md:h-8 md:w-48 text-white bg-[#01AB14] hover:bg-[#2B9437] rounded-md transition-all ease-linear">
                             <x-heroicon-o-plus class="w-5 h-5" />
                             Tambah Lowongan
                         </button>

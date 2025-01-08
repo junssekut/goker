@@ -2,7 +2,7 @@
     {{ $infolist }}
 
     <div class="bg-white border shadow-lg rounded-xl mt-4">
-        <div class="flex flex-col md:flex-row justify-evenly items-center py-8">
+        <div class="flex flex-wrap gap-4 md:gap-0 md:flex-row justify-evenly items-center py-8">
             <div
                 class="flex flex-col justify-center items-center bg-[#E2F2D0] text-[#00AA13] w-48 h-32 rounded-2xl shadow-lg">
                 <p class="text-2xl">CV</p>
