@@ -26,6 +26,11 @@ class CareerPage extends Component
         $this->distinctLocations = Career::select('location')->distinct()->pluck('location')->toArray();
         $this->name = Career::select('name')->distinct()->pluck('name')->toArray();
     }
+
+    // create a function for storing image to db   
+    
+
+    
     
 
     public function filterCareers(array $filterValue)

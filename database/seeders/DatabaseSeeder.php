@@ -37,8 +37,15 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin'
         ]);
 
-        $this->call(CareerSeeder::class);
-        $this->call(DetailCareerSeeder::class);
-        $this->call(UserProfileSeeder::class);
+        // $this->call(CareerSeeder::class);
+        // $this->call(DetailCareerSeeder::class);
+        // $this->call(UserProfileSeeder::class);
+
+        $this->call([
+            CareerCategorySeeder::class,
+            CareerSeeder::class,
+            DetailCareerSeeder::class,
+            UserProfileSeeder::class,
+        ]);
     }
 }

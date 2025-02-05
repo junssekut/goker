@@ -10,7 +10,7 @@
             <div class="flex flex-col gap-2">
                 <h1 class="text-3xl font-semibold">Beranda</h1>
                 <p class="text-md w-11/12 line-clamp-3">Rekan HRD <span
-                        class="font-semibold">{{ Auth::user()->profile->name }}</span>, Kamu
+                        class="font-semibold">{{ Auth::user()->name }}</span>, Kamu
                     udah ga sabar
                     ya buat
                     liat
@@ -36,4 +36,5 @@
             @livewire(App\Filament\Widgets\CareerDetailTableWidget::class)
         </div>
     </div>
+
 </x-filament::page>

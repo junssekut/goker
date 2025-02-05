@@ -30,7 +30,7 @@ class CVScoringService
         //     basename($filePath) // Nama file
         // )->post($this->apiURL . '/process-cv', $payload);
 
-        $response = Http::timeout(120)->attach(
+        $response = Http::timeout(500)->attach(
             'file', // The name of the field that Flask is expecting (in Flask code: request.files['file'])
             fopen($filePath, 'r'), // Open the file and send its content
         )->post($this->apiURL . '/process-cv', $payload);

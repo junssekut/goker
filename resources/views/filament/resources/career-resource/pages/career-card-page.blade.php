@@ -217,24 +217,24 @@
                             {{-- {{ dd($record) }} --}}
                             <span
                                 class="flex flex-row justify-center items-center border-2 px-2 py-1 text-sm rounded gap-2 font-medium
-    @if ($record->category && $record->category->category_name === 'Design') bg-blue-100 text-blue-800 border-blue-300
-    @elseif($record->category && $record->category->category_name === 'Financial and Accounting') bg-yellow-100 text-yellow-800 border-yellow-300
-    @elseif($record->category && $record->category->category_name === 'Marketing and Branding') bg-green-100 text-green-800 border-green-300
-    @elseif($record->category && $record->category->category_name === 'Development') bg-purple-100 text-purple-800 border-purple-300
+    @if ($record->category && $record->category?->category_name === 'Design') bg-blue-100 text-blue-800 border-blue-300
+    @elseif($record->category && $record->category?->category_name === 'Financial and Accounting') bg-yellow-100 text-yellow-800 border-yellow-300
+    @elseif($record->category && $record->category?->category_name === 'Marketing and Branding') bg-green-100 text-green-800 border-green-300
+    @elseif($record->category && $record->category?->category_name === 'Development') bg-purple-100 text-purple-800 border-purple-300
     @else bg-red-100 text-red-800 border-red-300 @endif">
-                                @if ($record->category->category_name === 'Design')
+                                @if ($record->category?->category_name === 'Design')
                                     <x-heroicon-o-paint-brush class="w-4 h-4" />
-                                @elseif ($record->category->category_name === 'Financial and Accounting')
+                                @elseif ($record->category?->category_name === 'Financial and Accounting')
                                     <x-heroicon-o-currency-dollar class="w-4 h-4" />
-                                @elseif ($record->category->category_name === 'Marketing and Branding')
+                                @elseif ($record->category?->category_name === 'Marketing and Branding')
                                     <x-heroicon-o-megaphone class="w-4 h-4" />
-                                @elseif ($record->category->category_name === 'Development')
+                                @elseif ($record->category?->category_name === 'Development')
                                     <x-heroicon-o-code-bracket class="w-4 h-4" />
                                 @else
                                     <x-heroicon-o-information-circle class="w-4 h-4" />
                                 @endif
 
-                                {{ $record->category->category_name }}
+                                {{ $record->category?->category_name }}
                             </span>
 
                             <span class="border-2 px-2 py-1 text-sm rounded">{{ $record->status }}</span>

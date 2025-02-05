@@ -18,7 +18,7 @@
                 <!--[if BLOCK]><![endif]-->
                 <h1
                     class="fi-simple-header-heading text-center text-2xl font-bold tracking-tight text-gray-950 dark:text-white">
-                    Sign in
+                    Login HRD
                 </h1>
                 <!--[if ENDBLOCK]><![endif]-->
 
@@ -333,7 +333,7 @@
                             <!--[if ENDBLOCK]><![endif]-->
 
                             <span x-show="! isProcessing" class="fi-btn-label">
-                                Sign in
+                                Login HRD
                             </span>
 
                             <!--[if BLOCK]><![endif]--> <span x-show="isProcessing" x-text="processingMessage"
@@ -389,10 +389,10 @@
             }"
                 x-on:close-modal.window="if ($event.detail.id === 'MxEyndv6wUjrOTILhKqp-action') close()"
                 x-on:open-modal.window="if ($event.detail.id === 'MxEyndv6wUjrOTILhKqp-action') open()"
-                x-trap.noscroll="isOpen" x-bind:class="{
+                x-trap.noscroll="isOpen"
+                x-bind:class="{
                     'fi-modal-open': isOpen,
-                }"
-                class="fi-modal block">
+                }" class="fi-modal block">
                 <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
 
                 <div x-show="isOpen" style="display: none;">
@@ -479,10 +479,10 @@
             }"
                 x-on:close-modal.window="if ($event.detail.id === 'MxEyndv6wUjrOTILhKqp-infolist-action') close()"
                 x-on:open-modal.window="if ($event.detail.id === 'MxEyndv6wUjrOTILhKqp-infolist-action') open()"
-                x-trap.noscroll="isOpen" x-bind:class="{
+                x-trap.noscroll="isOpen"
+                x-bind:class="{
                     'fi-modal-open': isOpen,
-                }"
-                class="fi-modal block">
+                }" class="fi-modal block">
                 <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
 
                 <div x-show="isOpen" style="display: none;">
@@ -566,10 +566,10 @@
             }"
                 x-on:close-modal.window="if ($event.detail.id === 'MxEyndv6wUjrOTILhKqp-form-component-action') close()"
                 x-on:open-modal.window="if ($event.detail.id === 'MxEyndv6wUjrOTILhKqp-form-component-action') open()"
-                x-trap.noscroll="isOpen" x-bind:class="{
+                x-trap.noscroll="isOpen"
+                x-bind:class="{
                     'fi-modal-open': isOpen,
-                }"
-                class="fi-modal block">
+                }" class="fi-modal block">
                 <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
 
                 <div x-show="isOpen" style="display: none;">

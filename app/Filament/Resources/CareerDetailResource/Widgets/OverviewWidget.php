@@ -82,7 +82,8 @@ class OverviewWidget extends Widget implements HasForms
                             ->label('')
                             ->icon('heroicon-m-pencil-square')
                             ->iconPosition('after')
-                            ->iconColor('goker-gelap'),
+                            ->iconColor('goker-gelap')
+                            ->formatStateUsing(fn (string $state): string => html_entity_decode($state)),
                     ]),
                 ])
             ->record($this->record);

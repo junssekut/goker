@@ -29,16 +29,16 @@ use Filament\Support\Facades\FilamentView;
 use Filament\View\PanelsRenderHook;
 
 use Filament\Support\Facades\FilamentColor;
- 
 
-class HrdPanelProvider extends PanelProvider
+class AdminPanelProvider extends PanelProvider
 {
+
     public function boot() {
         FilamentColor::register([
             'goker-sangat-gelap' => Color::hex('#00660B'),
             'goker-gelap' => Color::hex('#00AA13'),
             'goker-terang' => Color::hex('#E2F2D0'),
-
+            'goker-oren' => Color::hex('#FF8301'),
             'status-applied' => Color::hex('#00AA13'),
             'status-psychological-test' => Color::hex('#00AFDE'), 
             'status-interview' => Color::hex('#C62029'), 
@@ -47,38 +47,23 @@ class HrdPanelProvider extends PanelProvider
             // 'danger' => Color::hex('#ff0000'),
         ]);
 
-        FilamentView::registerRenderHook(
-            PanelsRenderHook::SIDEBAR_NAV_START, // or use SIDEBAR_NAV_END
-            fn () => view('filament.sidebar-avatar') // This loads your custom Blade view
-        );
+        // FilamentView::registerRenderHook(
+        //     PanelsRenderHook::RESOURCE_PAGES_LIST_RECORDS_TABLE_AFTER, // or use SIDEBAR_NAV_END
+        //     fn () => view('filament.createHRD') // This loads your custom Blade view
+        // );
 
-        FilamentView::registerRenderHook(
-            PanelsRenderHook::SIDEBAR_NAV_END, // or use SIDEBAR_NAV_END
-            fn () => view('filament.sidebar-logout') // This loads your custom Blade view
-        );
-
-        FilamentView::registerRenderHook(
-            PanelsRenderHook::AUTH_LOGIN_FORM_AFTER, // or use SIDEBAR_NAV_END
-            fn () => Filament::getCurrentPanel()->getId() === 'admin' 
-            ? view('filament.login-inject-admin') 
-            : view('filament.login-inject') // This loads your custom Blade view
-        );
-
-        FilamentView::registerRenderHook(
-            PanelsRenderHook::TOPBAR_AFTER, // or use SIDEBAR_NAV_END
-            fn () => view('filament.topbar-inject') // This loads your custom Blade view
-        );
+     
     }
 
-    public function panel(Panel $panel): Panel
+   public function panel(Panel $panel): Panel
     {
         
 
         return $panel
             ->default()
-            ->id('hrd')
-            ->path('hrd')
-            ->authGuard('hrd')
+            ->id('admin')
+            ->path('admin')
+            ->authGuard('admin')
             ->login()
 
             // theme customization
@@ -105,28 +90,12 @@ class HrdPanelProvider extends PanelProvider
             ->breadcrumbs(false)
 
             ->navigationItems([
-                NavigationItem::make('Beranda')
-                    ->icon('heroicon-o-home')
-                    ->url(fn () => Dashboard::getUrl())
-                    ->isActiveWhen(fn () => 
-                        request()->routeIs('filament.hrd.pages.dashboard')
-                    )
-                    ->badge(fn () => CareerDetail::count())
-                    ->badgeTooltip(fn() => 'Ada ' . CareerDetail::count() . ' pelamar nih yang nungguin kamu!')
-                    ->sort(1),
-                NavigationItem::make('Lowongan')
-                    ->url(fn () => CareerCardPage::getUrl())
-                    ->icon('heroicon-o-briefcase')
-                    ->sort(2)
-                    ->isActiveWhen(fn () => request()->routeIs('filament.hrd.resources.careers.card') ||
-                    request()->routeIs('filament.hrd.resources.careers.view') || 
-                    request()->routeIs('filament.hrd.resources.career-details.view')),
             ])
             
             ->favicon(asset('assets/images/goker-icon.png'))
 
-            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
-            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
+            ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\\Filament\\Admin\\Resources')
+            ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\\Filament\\Admin\\Pages')
             ->pages([
                 
             ])

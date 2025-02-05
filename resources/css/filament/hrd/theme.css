@@ -51,6 +51,10 @@
     background-image: url('/public/assets/images/user-detail.png');
 }
 
+.bg-adminPanel {
+    background-image: url('/public/assets/images/backAdmin.png');
+}
+
 .bg-login {
     background-image: url('/public/assets/images/latar-loginHrd.svg');
     @apply bg-[#bce194];

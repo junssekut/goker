@@ -40,6 +40,16 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'admin' => [ // For Admin Panel
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+
+        'hrd' => [ // For HRD Panel
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+
     ],
 
     /*

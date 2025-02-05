@@ -1,6 +1,9 @@
 <script>
+    window.currentPanel = "{{ Filament\Facades\Filament::getCurrentPanel()?->getId() }}";
+    currPanel = window.currentPanel;
+    // console.log("Current Filament Panel:", window.currentPanel);
     const elements = document.querySelector('.fi-sidebar-group-items');
-    const lastListItem = Array.from(elements.children).find(item => !item.classList.contains('fi-active'));
+    const lastListItem = Array.from(elements.children).find(item => item.classList.contains('fi-active'));
     const anchor = lastListItem.querySelector('a');
 
     if (anchor) {
@@ -16,8 +19,10 @@
         if (clonedLabel) {
             const originalText = clonedLabel.textContent || clonedLabel.innerText; // Get the original text
             clonedLabel.innerHTML = clonedLabel.innerHTML.replace(originalText, "Keluar");
+
         }
-        
+
+        // console.log(clonedLabel.parentNode)
         clonedLabel.classList.remove('font-medium');
         clonedLabel.classList.remove('text-gray-700');
         clonedLabel.classList.add('font-bold');
@@ -34,8 +39,11 @@
         // Create a form element
         const form = document.createElement('form');
         form.method = 'POST';
-        form.action = 'hrd/logout'; // Adjust the logout route as needed
+
+
+        form.action = currPanel + '/logout'; // Adjust the logout route as needed
         form.className = classes;
+        form.classList.remove('bg-gray-100');
 
         // Add CSRF token input for Laravel
         const csrfInput = document.createElement('input');
@@ -49,6 +57,8 @@
 
         // Duplicate the list item
         const newListItem = lastListItem.cloneNode(true);
+
+
 
         // Find the anchor in the duplicated list item and replace it with the form
         const duplicatedAnchor = newListItem.querySelector('a');
