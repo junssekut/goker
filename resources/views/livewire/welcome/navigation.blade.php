@@ -13,22 +13,26 @@ new class extends Component {
 }; ?>
 
 <div class="button-login flex justify-center gap-3 mt-3 pb-6 md:mt-0 md:pb-0">
-    @auth
+    {{-- {{ dd() }}
+    @php
 
+        $isAdminOrHRD = Auth::guard('admin')->check() || Auth::guard('hrd')->check();
+    @endphp --}}
 
+    @if (Auth::guard('user')->user())
         <span
             class="{{ Route::is('home') ? 'u-icon text-white text-[42px] w-full flex justify-center items-center mt-2 mb-4 md:m-0 gap-1 cursor-pointer relative' : 'u-icon text-black text-[42px] w-full flex justify-center items-center mt-2 mb-4 md:m-0 gap-1 cursor-pointer relative' }} ">
 
-            <a class="flex items-center" href="{{ url('/dashboard') }}"><ion-icon class="icon-user" name="person-circle-outline"
+            <a class="flex items-center" href="{{ url('/user') }}"><ion-icon class="icon-user" name="person-circle-outline"
                     class="">
                 </ion-icon></a>
-            <p class="text-sm md:hidden block">Hello, {{ Auth::user()->name }}</p>
+            <p class="text-sm md:hidden block">Hello, {{ Auth::guard('user')->user()->name }}</p>
             <div
                 class="user-dropDown bg-white border-2 p-5 pt-4 pb-5 text-sm rounded-lg hidden top-[42px] md:left-[4px] w-40 shadow-md border-slate-200 left:50%">
                 <ul class="flex flex-col gap-3">
-                    <li><a href="{{ url('/dashboard') }}" class="user-list font-britHeavy text-[15px]">Lihat Profil</a>
+                    <li><a href="{{ url('/user') }}" class="user-list font-britHeavy text-[15px]">Lihat Profil</a>
                     </li>
-                    <li><a href="{{ url('/dashboard') }}" class="user-list font-britHeavy text-[15px]">Riwayat
+                    <li><a href="{{ url('/user') }}" class="user-list font-britHeavy text-[15px]">Riwayat
                             Lamaran</a>
                     </li>
                     <li><button wire:click="logout"
@@ -73,7 +77,7 @@ new class extends Component {
         @if (!(Route::is('login') || Route::is('register')))
             <button
                 class="font-britHeavy text-lg pl-5 pr-5 p-1 md:pt-0 md:pb-0 bg-unguGojek text-white rounded-3xl duration-300 hover:bg-ijoGojek">
-                <a href="{{ route('login') }}" class="">
+                <a href="/user" class="">
                     Masuk
                 </a>
             </button>

@@ -33,7 +33,7 @@ new #[Layout('layouts.html')] class extends Component {
 
         event(new Registered(($user = User::create($validated))));
 
-        Auth::login($user);
+        Auth::guard('user')->login($user);
 
         $this->redirect(route('profile', absolute: false), navigate: true);
     }
@@ -143,7 +143,7 @@ new #[Layout('layouts.html')] class extends Component {
                     <!-- Tombol Masuk -->
 
                     <div class="text-center mt-4 text-white">
-                        <p>Gokers sudah punya akun? <a href="{{ route('login') }}"
+                        <p>Gokers sudah punya akun? <a href="/user"
                                 class="text-[#F7CE55] hover:underline hover:text-white duration-200">Masuk</a></p>
                     </div>
 

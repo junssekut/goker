@@ -49,24 +49,30 @@ class HrdPanelProvider extends PanelProvider
 
         FilamentView::registerRenderHook(
             PanelsRenderHook::SIDEBAR_NAV_START, // or use SIDEBAR_NAV_END
-            fn () => view('filament.sidebar-avatar') // This loads your custom Blade view
+            fn () => Filament::getCurrentPanel()->getId() === 'hrd'
+                ? view('filament.sidebar-avatar') 
+                : null
         );
 
         FilamentView::registerRenderHook(
             PanelsRenderHook::SIDEBAR_NAV_END, // or use SIDEBAR_NAV_END
-            fn () => view('filament.sidebar-logout') // This loads your custom Blade view
+            fn () => Filament::getCurrentPanel()->getId() === 'hrd'
+                ? view('filament.sidebar-logout')
+                : null
         );
 
         FilamentView::registerRenderHook(
-            PanelsRenderHook::AUTH_LOGIN_FORM_AFTER, // or use SIDEBAR_NAV_END
-            fn () => Filament::getCurrentPanel()->getId() === 'admin' 
-            ? view('filament.login-inject-admin') 
-            : view('filament.login-inject') // This loads your custom Blade view
+            PanelsRenderHook::AUTH_LOGIN_FORM_AFTER,
+            fn () => Filament::getCurrentPanel()->getId() === 'hrd'
+                ? view('filament.login-inject')
+                : null
         );
 
         FilamentView::registerRenderHook(
             PanelsRenderHook::TOPBAR_AFTER, // or use SIDEBAR_NAV_END
-            fn () => view('filament.topbar-inject') // This loads your custom Blade view
+            fn () => Filament::getCurrentPanel()->getId() === 'hrd'
+                ? view('filament.topbar-inject') 
+                : null
         );
     }
 

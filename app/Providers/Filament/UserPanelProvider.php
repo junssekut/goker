@@ -30,63 +30,56 @@ use Filament\View\PanelsRenderHook;
 
 use Filament\Support\Facades\FilamentColor;
 
-class AdminPanelProvider extends PanelProvider
+class UserPanelProvider extends PanelProvider
 {
-
-    public function boot() {
-        FilamentColor::register([
-            'goker-sangat-gelap' => Color::hex('#00660B'),
-            'goker-gelap' => Color::hex('#00AA13'),
-            'goker-terang' => Color::hex('#E2F2D0'),
-            'goker-oren' => Color::hex('#FF8301'),
-            'status-applied' => Color::hex('#00AA13'),
-            'status-psychological-test' => Color::hex('#00AFDE'), 
-            'status-interview' => Color::hex('#C62029'), 
-            'status-mcu' => Color::hex('#94028B'), 
-            'status-accepted' => Color::hex('#FF009C'), 
-            // 'danger' => Color::hex('#ff0000'),
-        ]);
-
+    public function boot(){
         FilamentView::registerRenderHook(
             PanelsRenderHook::AUTH_LOGIN_FORM_AFTER,
-            fn () => Filament::getCurrentPanel()->getId() === 'admin'
-                ? view('filament.login-inject-admin')
+            fn () => Filament::getCurrentPanel()->getId() === 'user'
+                ? view('filament.login-inject-user')
                 : null
         );
+
         FilamentView::registerRenderHook(
             PanelsRenderHook::SIDEBAR_NAV_START, // or use SIDEBAR_NAV_END
-            fn () => Filament::getCurrentPanel()->getId() === 'admin'
+            fn () => Filament::getCurrentPanel()->getId() === 'user'
                 ? view('filament.sidebar-avatar') 
                 : null
         );
 
         FilamentView::registerRenderHook(
             PanelsRenderHook::SIDEBAR_NAV_END, // or use SIDEBAR_NAV_END
-            fn () => Filament::getCurrentPanel()->getId() === 'admin'
+            fn () => Filament::getCurrentPanel()->getId() === 'user'
                 ? view('filament.sidebar-logout')
+                : null
+        );
+
+
+        FilamentView::registerRenderHook(
+            PanelsRenderHook::TOPBAR_AFTER, // or use SIDEBAR_NAV_END
+            fn () => Filament::getCurrentPanel()->getId() === 'user'
+                ? view('filament.topbar-inject') 
                 : null
         );
 
         FilamentView::registerRenderHook(
             PanelsRenderHook::TOPBAR_AFTER, // or use SIDEBAR_NAV_END
-            fn () => Filament::getCurrentPanel()->getId() === 'admin'
-                ? view('filament.topbar-inject') 
+            fn () => Filament::getCurrentPanel()->getId() === 'user'
+                ? view('filament.userProfileWidget') 
                 : null
         );
-
-     
     }
 
-   public function panel(Panel $panel): Panel
+    public function panel(Panel $panel): Panel
     {
-        
-
         return $panel
             ->default()
-            ->id('admin')
-            ->path('admin')
-            ->authGuard('admin')
+            ->id('user')
+            ->path('user')
+            ->authGuard('user')
             ->login()
+            // ->getLoginUrl('filament.auth.login')
+            // ->getLoginView('filament.auth.login')
 
             // theme customization
             ->colors([
@@ -112,16 +105,19 @@ class AdminPanelProvider extends PanelProvider
             ->breadcrumbs(false)
 
             ->navigationItems([
+                NavigationItem::make('Home Page')
+                    ->icon('heroicon-o-arrow-left')
+                    ->url('/')
             ])
             
             ->favicon(asset('assets/images/goker-icon.png'))
 
-            ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\\Filament\\Admin\\Resources')
-            ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\\Filament\\Admin\\Pages')
+            ->discoverResources(in: app_path('Filament/User/Resources'), for: 'App\\Filament\\User\\Resources')
+            ->discoverPages(in: app_path('Filament/User/Pages'), for: 'App\\Filament\\User\\Pages')
             ->pages([
                 
             ])
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
+            ->discoverWidgets(in: app_path('Filament/User/Widgets'), for: 'App\\Filament\\User\\Widgets')
             ->widgets([
                 CareerStatus::class,
             ])

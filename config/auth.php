@@ -50,6 +50,11 @@ return [
             'provider' => 'users',
         ],
 
+        'user' => [ // For HRD Panel
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+
     ],
 
     /*

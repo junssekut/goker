@@ -1,5 +1,5 @@
 <div>
-    <div class="bg-inject bg-adminPanel">
+    <div class="bg-inject bg-beranda">
     </div>
 </div>
 {{-- 
@@ -38,7 +38,7 @@
         if (main) {
             main.classList.remove('shadow-sm');
             main.classList.add('shadow-lg');
-            main.style.background = 'linear-gradient(to top, #FFFFFF -40%, #BCE194 50%, #9fde5b 100%)';
+            main.style.background = 'linear-gradient(to top, #ffffff -40%, #763a7f 60%, #762582 100%)';
         }
 
         const img = document.querySelector('.fi-logo');
@@ -51,7 +51,15 @@
         if (sign_in_element) {
             sign_in_element.textContent = 'Login Admin';
             sign_in_element.classList.add('pt-2');
+            sign_in_element.classList.add('text-white');
         }
+
+        const span = document.querySelectorAll('span');
+        // console.log
+        span.forEach(e => {
+            e.classList.add('text-white');
+
+        });
     }
 
     // Initial application

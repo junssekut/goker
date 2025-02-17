@@ -6,6 +6,7 @@ use Debugbar;
 
 use App\Models\UserProfile;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
 
 #[Layout('layouts.html')]
@@ -55,6 +56,28 @@ class UserProfileForm extends Component
         $this->step++;   
     }
 
+    public function mount()
+    {
+        $user = Auth::guard('user')->user();
+
+        if ($user) {
+            $profile = UserProfile::where('user_id', $user->id)->first();
+
+            if ($profile) {
+                $this->name = $profile->name;
+                $this->nickname = $profile->nickname;
+                $this->birth_place = $profile->birth_place;
+                $this->dob = $profile->dob;
+                $this->gender = $profile->gender;
+                $this->domicile = $profile->domicile;
+                $this->education_level = $profile->education_level;
+                $this->school = $profile->school;
+                $this->major = $profile->major;
+                $this->experience = $profile->experience;
+            }
+        }
+    }
+
     public function submitProfile()
     {
         $this->dispatch('input_error');
@@ -62,7 +85,7 @@ class UserProfileForm extends Component
 
         // Save or update the profile
         UserProfile::updateOrCreate(
-            ['user_id' => auth()->id()],
+            ['user_id' => Auth::guard('user')->user()->id],
             [
                 'name' => $this->name,
                 'nickname' => $this->nickname,
