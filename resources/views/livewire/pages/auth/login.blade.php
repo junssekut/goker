@@ -90,8 +90,8 @@ new #[Layout('layouts.html')] class extends Component {
                         Masuk
                     </button>
 
-                    <button type="button"
-                        class="w-full py-3 bg-white text-black font-mnbook rounded-full  duration-300 hover:bg-[#F09A1F] flex items-center justify-center hover:text-white my-3">
+                    <button type="button" onclick="window.location='{{ route('login.google') }}'"
+                        class="w-full py-3 bg-white text-black font-mnbook rounded-full duration-300 hover:bg-[#F09A1F] flex items-center justify-center hover:text-white my-3">
                         <img src="{{ asset('assets/images/logo-google.png') }}" alt="Google logo" class="h-4 mr-2">
                         Masuk dengan Google
                     </button>
