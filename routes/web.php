@@ -18,5 +18,9 @@ use App\Http\Controllers\CareerController; // Import your controller
 
 Route::get('/careers/{record}/download-cv', [CareerController::class, 'downloadCv'])->name('career.downloadCv');
     
+use App\Http\Controllers\Auth\LoginController;
+
+Route::get('login/google', [LoginController::class, 'redirectToGoogle'])->name('login.google');
+Route::get('login/google/callback', [LoginController::class, 'handleGoogleCallback']);
 
 require __DIR__.'/auth.php';

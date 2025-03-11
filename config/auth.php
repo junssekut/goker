@@ -53,6 +53,7 @@ return [
         'user' => [ // For HRD Panel
             'driver' => 'session',
             'provider' => 'users',
+            'model' => App\Models\User::class,
         ],
 
     ],

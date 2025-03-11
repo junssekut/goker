@@ -26,6 +26,7 @@ class CareerDetailPage extends Component {
     // public $isLoading = false;
 
     public function updatedCv()
+
 {
     // ✅ 1. Langsung trigger update UI
     $this->dispatch('cvUploadingStart'); // Mengirim event ke frontend

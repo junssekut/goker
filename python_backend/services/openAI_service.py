@@ -3,7 +3,7 @@ import time
 
 client = OpenAI(
   base_url="https://openrouter.ai/api/v1",
-  api_key="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",
+  api_key="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",
 )
 
 def get_openai_score(cv_text, job_requirement, job_desk):

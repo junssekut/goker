@@ -56,9 +56,7 @@
         </div>
 
         <div class="md:w-[20%] w-full flex flex-col gap-2 md:justify-start justify-center items-center">
-            @if (Auth::guard('user')->user())
-
-
+            @if (auth()->guard('user'))
                 {{-- @if ($career->detail->DateEnd < now())
                     <a href="{{ route('career') }}"
                         class="p-2 bg-ijoGojek text-white text-center rounded-2xl font-britHeavy mb-3 hover:bg-kuningTuaGojek duration-200">Udah
