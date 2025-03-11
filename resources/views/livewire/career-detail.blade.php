@@ -66,11 +66,18 @@
                     wire:submit.prevent="submitCV">
                     <!-- Upload CV -->
                     <div class="mb-3">
+                        <!-- Input File -->
                         <input type="file" wire:model="cv" class="w-full text-sm">
+
+                        <!-- Pesan Error -->
                         @error('cv')
                             <span class="error">{{ $message }}</span>
                         @enderror
+
+                        <!-- Tampilkan "Upload CV" saat file dipilih -->
+
                     </div>
+
 
                     <!-- Preview CV -->
                     @if ($cvPreviewUrl)
@@ -88,11 +95,27 @@
                         </div>
                     @endif
 
+                    {{-- <h1>Helo {{ $this->uploading }}</h1> --}}
+
                     <!-- Tombol Dinamis -->
-                    <button type="submit" class="bg-ijoGojek font-britHeavy text-white py-2 rounded-2xl"
-                        {{ !$uploaded ? 'disabled' : '' }}>
-                        Kumpulkan CV
+                    <!-- Tombol Dinamis -->
+                    <!-- Tombol Dinamis -->
+                    <!-- Tombol Dinamis -->
+                    <button type="submit"
+                        class="bg-ijoGojek font-britHeavy text-white py-2 rounded-2xl flex items-center justify-center gap-2"
+                        wire:loading.attr="disabled" wire:target="submitCV" x-data="{ isUploading: false }"
+                        x-init="isUploading = false" @cvUploadingStart.window="isUploading = true"
+                        @cvUploadingEnd.window="isUploading = false" {{ !$uploaded ? 'disabled' : '' }}>
+
+                        <!-- Loading saat submit CV -->
+                        <span x-show="isUploading" wire:loading wire:target="submitCV"
+                            class="animate-spin border-2 border-white border-t-transparent rounded-full w-5 h-5"></span>
+
+                        <!-- Teks tombol normal -->
+                        <span wire:loading.remove wire:target="submitCV">Kumpulkan CV</span>
+                        <span x-show="isUploading" wire:loading wire:target="submitCV">Scoring by AI</span>
                     </button>
+
                 </form>
                 {{-- @endif --}}
             @else

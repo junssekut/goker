@@ -20,23 +20,29 @@ class CareerDetailPage extends Component {
     public $uploaded = false;
     public $finalPath;
     public $career;
-
     public $format;
+    public $isUploading = false;
+    public $isProcessingAI = false;
+    // public $isLoading = false;
 
     public function updatedCv()
-    {
-        // Validasi file
-        $this->validate([
-            'cv' => 'required|mimes:pdf|max:99999',
-        ]);
 
-        
-        $this->format = "CV_" . (string)$this->career->id . "_" .  (string)Auth::guard('user')->id() . ".pdf";
+{
+    // ✅ 1. Langsung trigger update UI
+    $this->dispatch('cvUploadingStart'); // Mengirim event ke frontend
 
-        $this->cvPreviewUrl = $this->cv->storeAs('temp_cv', $this->format, 'public');
-        $this->uploaded = true;
-        
-    }
+    $this->validate([
+        'cv' => 'required|mimes:pdf|max:1024',
+    ]);
+
+    $this->format = "CV_" . $this->career->id . "_" . Auth::guard('user')->id() . ".pdf";
+    $this->cvPreviewUrl = $this->cv->storeAs('temp_cv', $this->format, 'public');
+    $this->uploaded = true;
+
+    // ✅ 2. Kirim event selesai upload
+    $this->dispatch('cvUploadingEnd');
+}
+
 
     public function removeCv()
     {
@@ -50,7 +56,9 @@ class CareerDetailPage extends Component {
 
     public function submitCV(CVScoringService $cVScoringService)
     {
+        // $this->isLoading = true;
         // Pindahkan file ke direktori final
+        $this->isProcessingAI = true;
         $this->finalPath = Storage::disk('public')->putFileAs(
             'cv_uploads', 
             new \Illuminate\Http\File(storage_path('app/public/' . $this->cvPreviewUrl)), 
@@ -90,8 +98,9 @@ class CareerDetailPage extends Component {
             ]
         );
 
-
+        $this->isProcessingAI = true;
         $this->reset(['cv', 'cvPreviewUrl', 'uploaded']);
+        // $this->isLoading = false;
         session()->flash('message', '"CV-mu berhasil dikirim ya Gokers!"');
     }
 
