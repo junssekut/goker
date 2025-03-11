@@ -27,11 +27,11 @@ class CareerDetailPage extends Component {
     {
         // Validasi file
         $this->validate([
-            'cv' => 'required|mimes:pdf|max:1024',
+            'cv' => 'required|mimes:pdf|max:99999',
         ]);
 
         
-        $this->format = "CV_" . (string)$this->career->id . "_" .  (string)Auth::user()->id . ".pdf";
+        $this->format = "CV_" . (string)$this->career->id . "_" .  (string)Auth::guard('user')->id() . ".pdf";
 
         $this->cvPreviewUrl = $this->cv->storeAs('temp_cv', $this->format, 'public');
         $this->uploaded = true;
@@ -79,7 +79,7 @@ class CareerDetailPage extends Component {
         
         CareerDetail::updateOrCreate(
             [
-                'user_id' => Auth::user()->id,
+                'user_id' => Auth::guard('user')->id(),
                 'career_id' => $this->career->id,
             ],
             [

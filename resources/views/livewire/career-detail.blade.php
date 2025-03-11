@@ -56,13 +56,14 @@
         </div>
 
         <div class="md:w-[20%] w-full flex flex-col gap-2 md:justify-start justify-center items-center">
-            @auth
+            @if (auth()->guard('user'))
                 {{-- @if ($career->detail->DateEnd < now())
                     <a href="{{ route('career') }}"
                         class="p-2 bg-ijoGojek text-white text-center rounded-2xl font-britHeavy mb-3 hover:bg-kuningTuaGojek duration-200">Udah
                         telat nih Gokers. Cari yang aja lain yuk</a>
                 @else --}}
-                <form class="flex flex-col gap-1 justify-center md:justify-start w-[250px]" wire:submit.prevent="submitCV">
+                <form class="flex flex-col gap-1 justify-center md:justify-start w-[250px]"
+                    wire:submit.prevent="submitCV">
                     <!-- Upload CV -->
                     <div class="mb-3">
                         <input type="file" wire:model="cv" class="w-full text-sm">
@@ -101,7 +102,7 @@
                     bergabung
                     menjadi
                     Gokers!</a>
-            @endauth
+            @endif
 
 
 
