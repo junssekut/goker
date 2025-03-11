@@ -56,20 +56,30 @@
         </div>
 
         <div class="md:w-[20%] w-full flex flex-col gap-2 md:justify-start justify-center items-center">
-            @auth
+            @if (Auth::guard('user')->user())
+
+
                 {{-- @if ($career->detail->DateEnd < now())
                     <a href="{{ route('career') }}"
                         class="p-2 bg-ijoGojek text-white text-center rounded-2xl font-britHeavy mb-3 hover:bg-kuningTuaGojek duration-200">Udah
                         telat nih Gokers. Cari yang aja lain yuk</a>
                 @else --}}
-                <form class="flex flex-col gap-1 justify-center md:justify-start w-[250px]" wire:submit.prevent="submitCV">
+                <form class="flex flex-col gap-1 justify-center md:justify-start w-[250px]"
+                    wire:submit.prevent="submitCV">
                     <!-- Upload CV -->
                     <div class="mb-3">
+                        <!-- Input File -->
                         <input type="file" wire:model="cv" class="w-full text-sm">
+
+                        <!-- Pesan Error -->
                         @error('cv')
                             <span class="error">{{ $message }}</span>
                         @enderror
+
+                        <!-- Tampilkan "Upload CV" saat file dipilih -->
+
                     </div>
+
 
                     <!-- Preview CV -->
                     @if ($cvPreviewUrl)
@@ -87,11 +97,27 @@
                         </div>
                     @endif
 
+                    {{-- <h1>Helo {{ $this->uploading }}</h1> --}}
+
                     <!-- Tombol Dinamis -->
-                    <button type="submit" class="bg-ijoGojek font-britHeavy text-white py-2 rounded-2xl"
-                        {{ !$uploaded ? 'disabled' : '' }}>
-                        Kumpulkan CV
+                    <!-- Tombol Dinamis -->
+                    <!-- Tombol Dinamis -->
+                    <!-- Tombol Dinamis -->
+                    <button type="submit"
+                        class="bg-ijoGojek font-britHeavy text-white py-2 rounded-2xl flex items-center justify-center gap-2"
+                        wire:loading.attr="disabled" wire:target="submitCV" x-data="{ isUploading: false }"
+                        x-init="isUploading = false" @cvUploadingStart.window="isUploading = true"
+                        @cvUploadingEnd.window="isUploading = false" {{ !$uploaded ? 'disabled' : '' }}>
+
+                        <!-- Loading saat submit CV -->
+                        <span x-show="isUploading" wire:loading wire:target="submitCV"
+                            class="animate-spin border-2 border-white border-t-transparent rounded-full w-5 h-5"></span>
+
+                        <!-- Teks tombol normal -->
+                        <span wire:loading.remove wire:target="submitCV">Kumpulkan CV</span>
+                        <span x-show="isUploading" wire:loading wire:target="submitCV">Scoring by AI</span>
                     </button>
+
                 </form>
                 {{-- @endif --}}
             @else
@@ -101,7 +127,7 @@
                     bergabung
                     menjadi
                     Gokers!</a>
-            @endauth
+            @endif
 
 
 

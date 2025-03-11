@@ -13,10 +13,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
     <link rel="icon" href="{{ asset('assets/images/goker-icon.png') }}" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('/resources/css/style.css') }}"> --}}
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script defer>
@@ -47,8 +48,8 @@
 
     <script
         src="
-                                                                                                                                                                                                            https://cdn.jsdelivr.net/npm/hint.css@3.0.0/Gruntfile.min.js
-                                                                                                                                                                                                            ">
+                                                                                                                                                                                                                                https://cdn.jsdelivr.net/npm/hint.css@3.0.0/Gruntfile.min.js
+                                                                                                                                                                                                                                ">
     </script>
     <link href="
         https://cdn.jsdelivr.net/npm/hint.css@3.0.0/hint.min.css

@@ -62,7 +62,7 @@
     function initNav() {
         const gCerah = "{{ asset('assets/images/goker-cerah.png') }}";
         const gGelap = "{{ asset('assets/images/goker-gelap.png') }}";
-        const isLoggedIn = @json(Auth::check());
+        const isLoggedIn = @json(Auth::guard('user')->check());
         let uIcon;
         if (isLoggedIn) {
             uIcon = document.querySelector('.u-icon')
