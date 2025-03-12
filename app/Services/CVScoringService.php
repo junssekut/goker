@@ -10,7 +10,7 @@ class CVScoringService
     protected $apiURL;
 
     public function __construct() {
-        $this->apiURL = env('PYTHON_API_URL');
+        $this->apiURL = 'http://127.0.0.1:5000';
     }
 
     public function processCv($filePath, $requirement, $jobdesk)
@@ -35,6 +35,7 @@ class CVScoringService
             fopen($filePath, 'r'), // Open the file and send its content
         )->post($this->apiURL . '/process-cv', $payload);
         // Pastikan respons valid
+
         if ($response->successful()) {
             // dd($response->json());
             return $response->json();
