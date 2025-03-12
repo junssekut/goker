@@ -112,7 +112,7 @@ class CareerCardPage extends Page implements HasForms
     public function save(): void
 {
     try {
-        $category = CareerCategory::where('category_name', $this->data['category'])->first();
+        $category = CareerCategory::where('id', $this->data['category'])->first();
         // $validated = $this->validate();
 
         $career = Career::create([

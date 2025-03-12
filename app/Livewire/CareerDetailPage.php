@@ -84,7 +84,6 @@ class CareerDetailPage extends Component {
         $score = $resp['score'];
         $reason = $resp['reason'];
         
-        
         CareerDetail::updateOrCreate(
             [
                 'user_id' => Auth::guard('user')->id(),
